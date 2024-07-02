@@ -19,7 +19,7 @@ function HomePage(props) {
             selected.map((val) =>
                 Axios.post('/api/documents/'+val,
                     {
-                        date: Date('2024-07-12')
+                        date: Date() + 10
                     },
                     {
                         headers:
@@ -33,6 +33,27 @@ function HomePage(props) {
         .then((response) => Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
             .then(function(response){
                 setFactures(response.data.data);
+            }),);
+    };
+    const envoyerFacture = (e) => {
+        Axios.all(
+            selected.map((val) =>
+                Axios.post('/api/documents/'+val+'status',
+                    {
+                        id_status:4
+                    },
+                    {
+                        headers:
+                            {
+                                Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth`
+                            }
+                    }
+                )
+            )
+        )
+            .then((response) => Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
+                .then(function(response){
+                    setFactures(response.data.data);
             }),);
     };
     return (
@@ -59,6 +80,7 @@ function HomePage(props) {
                                 <th scope="row">{val.total_with_tax} €</th>
                                 <th scope="row">{val.status_text}</th>
                                 <th scope="row"><input type="checkbox" value={val.id} onChange={onChangeCheckBox}/></th>
+                                <th scope="row"><button onClick={envoyerFacture}>Envoyer</button></th>
                             </tr>
                         )
 
