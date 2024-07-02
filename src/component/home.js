@@ -15,24 +15,27 @@ function HomePage(props) {
         setSelected(selectedArray => [...selectedArray,e.target.value]);
     };
     const updateDate = (e) => {
-        Promise.all(selected.map((val, key) => {
-            Axios.post('/api/documents/'+val,
-                {
-                    date: Date()
-                },
-                {
-                    headers:
-                        {
-                            Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth`
-                        }
-                }
+        Axios.all([
+            selected.map((val, key) => {
+                Axios.post('/api/documents/'+val,
+                    {
+                        date: Date()
+                    },
+                    {
+                        headers:
+                            {
+                                Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth`
+                            }
+                    }
+                )
+            })
+        ])
+            .then(
+                Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
+                    .then(function(response){
+                        setFactures(response.data.data);
+                    })
             )
-        })).then(
-            Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
-                .then(function(response){
-                    setFactures(response.data.data);
-                })
-        )
     };
     return (
         <>
