@@ -5,7 +5,7 @@ function HomePage(props) {
     return (
         <>
             <p>Bonjour</p>
-            <p>ceci est un test</p>
+            <p>Ceci est un test</p>
         </>
     )
 }
