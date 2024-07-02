@@ -12,7 +12,7 @@ function HomePage(props) {
     }, []);
     console.log(factures)
     return (
-        <table style={{display: "flex", justifyContent: "center"}}>
+        <table>
             <thead>
             <tr>
                 <th scope="col">Document</th>
@@ -26,7 +26,7 @@ function HomePage(props) {
             {factures.length > 0 &&
                 factures.map((val, key) => {
                     return (
-                        <tr style={{justifyContent: "space-between", display: "flex", gap: "50px"}}>
+                        <tr>
                             <th scope="row">{val.type_text}</th>
                             <th scope="row">{val.date}</th>
                             <th scope="row">{val.customer_supplier_title}</th>
