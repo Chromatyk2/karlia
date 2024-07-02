@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React,{useState, useEffect} from 'react';
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import $ from "jquery";
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import 'react-tooltip/dist/react-tooltip.css'
+import HomePage from './component/home.js';
+function App(props) {
+  const [cookies, setCookie] = useCookies();
+  if(Object.keys(cookies).length == 0) {
+    return <Login />
+  }
+  return(
+      <>
+        {cookies.user !== undefined &&
+            <BrowserRouter>
+              <NavBar cookies={cookies} />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+              </Routes>
+              {/*<Footer cookies={cookies} />*/}
+            </BrowserRouter>
+        }
+      </>
   );
 }
 
