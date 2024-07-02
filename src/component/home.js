@@ -4,9 +4,13 @@ import {Axios} from "axios";
 
 function HomePage(props) {
     useEffect(() => {
-        fetch("https://karlia.fr/app/api/v2/documents",{'Authorization': 'Bearer o0qe5a-o5anz3-144030-jtijcb-g6b3yn'}
-        )
-        .then(res => res.json());
+        fetch('https://karlia.fr/app/api/v2/documents', {
+            method: 'get',
+            headers: new Headers({
+                'Authorization': 'bearer e4e05o-8z7n8e-144030-zvpmas-nhonth',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            })
+        });
     }, []);
     return (
         <>
