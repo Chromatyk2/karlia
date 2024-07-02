@@ -12,7 +12,7 @@ function HomePage(props) {
     }, []);
     console.log(factures)
     return (
-        <table style={{width:"100%"}}>
+        <table style={{width:"90%",margin:"auto",marginTop:"100px"}}>
             <thead style={{backgroundColor: "aliceblue"}}>
                 <tr>
                     <th scope="col">Document</th>
@@ -26,7 +26,7 @@ function HomePage(props) {
             {factures.length > 0 &&
                 factures.map((val, key) => {
                     return (
-                        <tr style={{backgroundColor:key % 2 && "aliceblue"}}>
+                        <tr style={{backgroundColor:key % 2 ? "aliceblue" : "white"}}>
                             <th scope="row">{val.type_text}</th>
                             <th scope="row">{val.date}</th>
                             <th scope="row">{val.customer_supplier_title}</th>
