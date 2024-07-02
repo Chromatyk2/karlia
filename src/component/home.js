@@ -30,14 +30,9 @@ function HomePage(props) {
                 )
             })
         ])
-            .then(
-                Axios.spread((...allData) => {
-                    Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
-                        .then(function(response){
-                            setFactures(response.data.data);
-                        })
-                })
-            )
+        .then(function(response){
+            console.log(response);
+        })
     };
     return (
         <>
