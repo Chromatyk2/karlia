@@ -5,6 +5,7 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState([]);
     const [selected,setSelected] = useState([]);
+    const [changeNumber,setChangeNumber] = useState(0);
     useEffect(() => {
         Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
             .then(function(response){
@@ -28,15 +29,18 @@ function HomePage(props) {
                 }
             )
                 .then(function(response){
-                    if(key == selected.length -1){
-                        Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
-                            .then(function(response){
-                                setFactures(response.data.data);
-                            })
-                    }
+                    setChangeNumber(changeNumber + 1);
                 })
         })
     };
+    useEffect(() => {
+        if(changeNumber == selected.length){
+            Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
+                .then(function(response){
+                    setFactures(response.data.data);
+                })
+        }
+    }, [changeNumber]);
     return (
         <>
             <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
