@@ -27,6 +27,14 @@ function HomePage(props) {
                         }
                 }
             )
+                .then(function(response){
+                    if(key == selected.length -1){
+                        Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
+                            .then(function(response){
+                                setFactures(response.data.data);
+                            })
+                    }
+                })
         })
     };
     return (
