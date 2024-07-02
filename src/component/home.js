@@ -12,21 +12,21 @@ function HomePage(props) {
     }, []);
     console.log(factures)
     return (
-        <table>
-            <thead>
-            <tr>
-                <th scope="col">Document</th>
-                <th scope="col">Date</th>
-                <th scope="col">Client</th>
-                <th scope="col">Montant</th>
-                <th scope="col">Status</th>
-            </tr>
+        <table style={{width:"100%"}}>
+            <thead style={{backgroundColor: "aliceblue"}}>
+                <tr>
+                    <th scope="col">Document</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Montant</th>
+                    <th scope="col">Status</th>
+                </tr>
             </thead>
             <tbody>
             {factures.length > 0 &&
                 factures.map((val, key) => {
                     return (
-                        <tr>
+                        <tr style={{backgroundColor:key % 2 && "aliceblue"}}>
                             <th scope="row">{val.type_text}</th>
                             <th scope="row">{val.date}</th>
                             <th scope="row">{val.customer_supplier_title}</th>
