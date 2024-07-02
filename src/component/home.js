@@ -13,6 +13,15 @@ function HomePage(props) {
     console.log(factures)
     return (
         <table style={{display: "flex", justifyContent: "center"}}>
+            <thead>
+            <tr>
+                <th scope="col">Document</th>
+                <th scope="col">Date</th>
+                <th scope="col">Client</th>
+                <th scope="col">Montant</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
             <tbody>
             {factures.length > 0 &&
                 factures.map((val, key) => {
