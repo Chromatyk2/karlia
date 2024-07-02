@@ -7,8 +7,8 @@ function HomePage(props) {
         fetch('https://karlia.fr/app/api/v2/documents', {
             method: 'get',
             headers: new Headers({
-                'Authorization': 'bearer e4e05o-8z7n8e-144030-zvpmas-nhonth',
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Authorization': 'Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth',
+                'Content-Type': 'application/json'
             })
         });
     }, []);
