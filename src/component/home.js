@@ -28,14 +28,16 @@ function HomePage(props) {
                 }
             )
         })
-        Promise.all(promises).then(() => {
-            Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
-                .then(function(response){
-                    setFactures(response.data.data);
-                })
-        })
+        async function anyNameFunction() {
+            await Promise.all(promises).then(() => {
+                Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
+                    .then(function(response){
+                        setFactures(response.data.data);
+                    })
+            })
+        }    // Execute the created function directly
+        anyNameFunction();
     };
-    console.log(selected);
     return (
         <>
             <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
