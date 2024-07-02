@@ -9,7 +9,6 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
               </Routes>
-              {/*<Footer cookies={cookies} />*/}
             </BrowserRouter>
       </>
   );
