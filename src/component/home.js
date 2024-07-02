@@ -14,37 +14,51 @@ function HomePage(props) {
     const onChangeCheckBox = (e) => {
         setSelected(selectedArray => [...selectedArray,e.target.value]);
     };
+    const updateDate = (e) => {
+        selected.map((val, key) => {
+            Axios.post('/api/documents/'+val,
+                {
+                    date: Date()
+                }
+            )
+        })
+    };
     console.log(selected);
     return (
-        <table style={{width:"90%",margin:"auto",paddingTop:"100px"}}>
-            <thead style={{backgroundColor: "aliceblue"}}>
-            <tr>
-                <th scope="col">Document</th>
-                <th scope="col">Date</th>
-                <th scope="col">Client</th>
-                <th scope="col">Montant</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            {factures.length > 0 &&
-                factures.map((val, key) => {
-                    return (
-                        <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
-                            <th scope="row">{val.type_text}</th>
-                            <th scope="row">{val.date}</th>
-                            <th scope="row">{val.customer_supplier_title}</th>
-                            <th scope="row">{val.total_with_tax} €</th>
-                            <th scope="row">{val.status_text}</th>
-                            <th scope="row"><input type="checkbox" value={val.id} onChange={onChangeCheckBox}/></th>
-                        </tr>
-                    )
+        <>
+            <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
+                <thead style={{backgroundColor: "aliceblue"}}>
+                <tr>
+                    <th scope="col">Document</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Montant</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {factures.length > 0 &&
+                    factures.map((val, key) => {
+                        return (
+                            <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
+                                <th scope="row">{val.type_text}</th>
+                                <th scope="row">{val.date}</th>
+                                <th scope="row">{val.customer_supplier_title}</th>
+                                <th scope="row">{val.total_with_tax} €</th>
+                                <th scope="row">{val.status_text}</th>
+                                <th scope="row"><input type="checkbox" value={val.id} onChange={onChangeCheckBox}/></th>
+                            </tr>
+                        )
 
-                })
+                    })
+                }
+                </tbody>
+            </table>
+            {selected.length > 0 &&
+                <button onClick={updateDate}>Mettre à la date du jour</button>
             }
-            </tbody>
-        </table>
+        </>
     )
 }
 
