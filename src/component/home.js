@@ -12,7 +12,7 @@ function HomePage(props) {
             })
     }, []);
     const onChangeCheckBox = (e) => {
-        if(e.target.checked === true){
+        if(e.target.checked === false){
             setSelected(oldSelected => {
                 return oldSelected.filter(id => id !== e.target.value)
             })
