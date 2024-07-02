@@ -18,11 +18,11 @@ function HomePage(props) {
                 factures.map((val, key) => {
                     return (
                         <tr style={{justifyContent: "space-between", display: "flex", gap: "50px"}}>
-                            <th scope="row">{val.type_texte}</th>
+                            <th scope="row">{val.type_text}</th>
                             <th scope="row">{val.date}</th>
                             <th scope="row">{val.customer_supplier_title}</th>
                             <th scope="row">{val.total_with_tax} €</th>
-                            <th scope="row">{val.status_text} €</th>
+                            <th scope="row">{val.status_text}</th>
                         </tr>
                     )
 
