@@ -10,6 +10,7 @@ function HomePage(props) {
                 setFactures(response.data);
             })
     }, []);
+    console.log(factures)
     return (
         <table style={{display: "flex", justifyContent: "center"}}>
             <tbody>
