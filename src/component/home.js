@@ -12,14 +12,20 @@ function HomePage(props) {
             })
     }, []);
     const onChangeCheckBox = (e) => {
-        setSelected(selectedArray => [...selectedArray,e.target.value]);
+        if(e.checked === true){
+            setSelected(oldSelected => {
+                return oldSelected.filter(id => id !== e.target.value)
+            })
+        }else{
+            setSelected(selectedArray => [...selectedArray,e.target.value]);
+        }
     };
     const updateDate = (e) => {
         Axios.all(
             selected.map((val) =>
                 Axios.post('/api/documents/'+val,
                     {
-                        date: Date() + 10
+                        date: new Date().setDate(new Date().getDate() + 10)
                     },
                     {
                         headers:
@@ -56,6 +62,7 @@ function HomePage(props) {
                     setFactures(response.data.data);
             }),);
     };
+    console.log(selected);
     return (
         <>
             <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
@@ -80,7 +87,6 @@ function HomePage(props) {
                                 <th scope="row">{val.total_with_tax} €</th>
                                 <th scope="row">{val.status_text}</th>
                                 <th scope="row"><input type="checkbox" value={val.id} onChange={onChangeCheckBox}/></th>
-                                <th scope="row"><button onClick={envoyerFacture}>Envoyer</button></th>
                             </tr>
                         )
 
@@ -89,7 +95,10 @@ function HomePage(props) {
                 </tbody>
             </table>
             {selected.length > 0 &&
-                <button onClick={updateDate}>Mettre à la date du jour</button>
+                <>
+                    <button onClick={updateDate}>Mettre à la date du jour</button>
+                    <button onClick={envoyerFacture}>Envoyer</button>
+                </>
             }
         </>
     )
