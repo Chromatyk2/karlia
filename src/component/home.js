@@ -15,8 +15,8 @@ function HomePage(props) {
         setSelected(selectedArray => [...selectedArray,e.target.value]);
     };
     const updateDate = (e) => {
-        Axios.all([
-            selected.map((val, key) => {
+        Axios.all(
+            selected.map((val) =>
                 Axios.post('/api/documents/'+val,
                     {
                         date: Date()
@@ -28,11 +28,9 @@ function HomePage(props) {
                             }
                     }
                 )
-            })
-        ])
-        .then(function(response){
-            console.log(response);
-        })
+            )
+        )
+        .then((response) => console.log(response),);
     };
     return (
         <>
