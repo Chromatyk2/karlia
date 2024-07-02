@@ -9,8 +9,7 @@ function HomePage(props) {
             headers: new Headers({
                 'Authorization': 'Bearer o0qe5a-o5anz3-144030-jtijcb-g6b3yn',
                 'Content-Type': 'application/x-www-form-urlencoded'
-            }),
-            body: 'A=1&B=2'
+            })
         }).then(res => res.json());
     }, []);
     return (
