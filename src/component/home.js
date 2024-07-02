@@ -15,7 +15,7 @@ function HomePage(props) {
         setSelected(selectedArray => [...selectedArray,e.target.value]);
     };
     const updateDate = (e) => {
-        Promise.allSettled([
+        Axios.all([
             selected.map((val, key) => {
                 Axios.post('/api/documents/'+val,
                     {
