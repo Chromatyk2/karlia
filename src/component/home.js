@@ -19,7 +19,7 @@ function HomePage(props) {
             selected.map((val) =>
                 Axios.post('/api/documents/'+val,
                     {
-                        date: Date()
+                        date: Date('2024-07-12')
                     },
                     {
                         headers:
