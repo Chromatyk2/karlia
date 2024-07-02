@@ -20,7 +20,12 @@ function HomePage(props) {
                 {
                     date: Date()
                 },
-                {headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }}
+                {
+                    headers:
+                        {
+                            Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth`
+                        }
+                }
             )
         })
     };
