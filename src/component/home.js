@@ -46,7 +46,7 @@ function HomePage(props) {
             selected.map((val) =>
                 Axios.post('/api/documents/'+val+'/status',
                     {
-                        id_status:4
+                        id_status:2
                     },
                     {
                         headers:
