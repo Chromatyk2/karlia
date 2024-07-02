@@ -5,7 +5,6 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState([]);
     const [selected,setSelected] = useState([]);
-    const [changeNumber,setChangeNumber] = useState(0);
     useEffect(() => {
         Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
             .then(function(response){
@@ -16,7 +15,7 @@ function HomePage(props) {
         setSelected(selectedArray => [...selectedArray,e.target.value]);
     };
     const updateDate = (e) => {
-        selected.map((val, key) => {
+        Promise.all(selected.map((val, key) => {
             Axios.post('/api/documents/'+val,
                 {
                     date: Date()
@@ -28,19 +27,13 @@ function HomePage(props) {
                         }
                 }
             )
-                .then(function(response){
-                    setChangeNumber(changeNumber + 1);
-                })
-        })
-    };
-    useEffect(() => {
-        if(changeNumber == selected.length){
+        })).then(
             Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
                 .then(function(response){
                     setFactures(response.data.data);
                 })
-        }
-    }, [changeNumber]);
+        )
+    };
     return (
         <>
             <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
