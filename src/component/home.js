@@ -12,7 +12,7 @@ function HomePage(props) {
             })
     }, []);
     const onChangeCheckBox = (e) => {
-        if(e.checked === true){
+        if(e.target.checked === true){
             setSelected(oldSelected => {
                 return oldSelected.filter(id => id !== e.target.value)
             })
@@ -44,7 +44,7 @@ function HomePage(props) {
     const envoyerFacture = (e) => {
         Axios.all(
             selected.map((val) =>
-                Axios.post('/api/documents/'+val+'status',
+                Axios.post('/api/documents/'+val+'/status',
                     {
                         id_status:4
                     },
