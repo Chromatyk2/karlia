@@ -19,7 +19,8 @@ function HomePage(props) {
             Axios.post('/api/documents/'+val,
                 {
                     date: Date()
-                }
+                },
+                {headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }}
             )
         })
     };
