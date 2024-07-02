@@ -15,7 +15,7 @@ function HomePage(props) {
         setSelected(selectedArray => [...selectedArray,e.target.value]);
     };
     const updateDate = (e) => {
-        var promises = selected.map((val, key) => {
+        selected.map((val, key) => {
             Axios.post('/api/documents/'+val,
                 {
                     date: Date()
@@ -28,15 +28,6 @@ function HomePage(props) {
                 }
             )
         })
-        async function anyNameFunction() {
-            await Promise.all(promises).then(() => {
-                Axios.get(`/api/documents?type=4`,{headers: { Authorization: `Bearer e4e05o-8z7n8e-144030-zvpmas-nhonth` }})
-                    .then(function(response){
-                        setFactures(response.data.data);
-                    })
-            })
-        }    // Execute the created function directly
-        anyNameFunction();
     };
     return (
         <>
