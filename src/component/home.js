@@ -35,15 +35,15 @@ function HomePage(props) {
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">{factures.denominationUniteLegale}</th>
+                        <th scope="row">{factures.uniteLegale.denominationUniteLegale}</th>
                         <th scope="row">{factures.siren}</th>
                         <th scope="row">{factures.siret}</th>
-                        <th scope="row">{factures.dateCreationUniteLegale}</th>
-                        <th scope="row">{factures.activitePrincipaleUniteLegale}</th>
-                        <th scope="row">{factures.adresseEtablissement.numeroVoieEtablissement + " " + factures.adresseEtablissement.typeVoieEtablissement + " " + factures.adresseEtablissement.complementAdresseEtablissement}</th>
-                        <th scope="row">{factures.codePostalEtablissement} €</th>
-                        <th scope="row">{factures.libelleCommuneEtablissement}</th>
-                        <th scope="row">{factures.categorieEntreprise}</th>
+                        <th scope="row">{factures.uniteLegale.dateCreationUniteLegale}</th>
+                        <th scope="row">{factures.uniteLegale.activitePrincipaleUniteLegale}</th>
+                        <th scope="row">{factures.adresseEtablissement.numeroVoieEtablissement + " " + factures.adresseEtablissement.typeVoieEtablissement + " " + factures.adresseEtablissement.libelleVoieEtablissement + " " + factures.adresseEtablissement.complementAdresseEtablissement}</th>
+                        <th scope="row">{factures.adresseEtablissement.codePostalEtablissement} €</th>
+                        <th scope="row">{factures.adresseEtablissement.libelleCommuneEtablissement}</th>
+                        <th scope="row">{factures.uniteLegale.categorieEntreprise}</th>
                     </tr>
                     </tbody>
                 </table>
