@@ -8,7 +8,7 @@ function HomePage(props) {
     useEffect(() => {
         Axios.get('https://api.insee.fr/api-sirene/3.11/siret/47759310700048',{
             headers: {
-                'x-api-key':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
+                'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
             }
         })
         .then(function(response){
