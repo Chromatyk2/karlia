@@ -3,8 +3,7 @@ import '../App.css'
 import Axios from "axios";
 
 function HomePage(props) {
-    const [factures,setFactures] = useState([]);
-    const [selected,setSelected] = useState([]);
+    const [factures,setFactures] = useState(null);
     const searchEntreprise = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
@@ -13,21 +12,46 @@ function HomePage(props) {
             }
         })
         .then(function(response){
-            console.log(response)
-            setFactures(response);
+            setFactures(response.data.etablissement);
         })
     };
     return (
         <>
-            {factures.length > 0 ?
-                JSON.stringify(factures, null, 2)
-                :
-                <>
-                    <input id={"searchSiretField"} type={"text"}/>
-                    <button onClick={searchEntreprise}>Chercher</button>
-                </>
+            <p>47759310700048</p>
+            {factures &&
+                <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
+                    <thead style={{backgroundColor: "aliceblue"}}>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">SIREN</th>
+                        <th scope="col">SIRET</th>
+                        <th scope="col">Date de Création</th>
+                        <th scope="col">Activité Principale</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Code Postale</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Type d'entreprise</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
+                        <th scope="row">{factures.denominationUniteLegale}</th>
+                        <th scope="row">{factures.siren}</th>
+                        <th scope="row">{factures.siret}</th>
+                        <th scope="row">{factures.dateCreationUniteLegale}</th>
+                        <th scope="row">{factures.activitePrincipaleUniteLegale}</th>
+                        <th scope="row">{factures.adresseEtablissement.numeroVoieEtablissement + " " + factures.adresseEtablissement.typeVoieEtablissement + " " + factures.adresseEtablissement.complementAdresseEtablissement}</th>
+                        <th scope="row">{factures.codePostalEtablissement} €</th>
+                        <th scope="row">{factures.libelleCommuneEtablissement}</th>
+                        <th scope="row">{factures.categorieEntreprise}</th>
+                    </tr>
+                    </tbody>
+                </table>
             }
-
+            <>
+            <input id={"searchSiretField"} type={"text"}/>
+                <button onClick={searchEntreprise}>Chercher</button>
+            </>
         </>
     )
 }
