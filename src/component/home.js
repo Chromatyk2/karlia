@@ -13,6 +13,7 @@ function HomePage(props) {
             }
         })
         .then(function(response){
+            console.log(response)
             setFactures(response);
         })
     };
