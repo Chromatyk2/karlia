@@ -41,7 +41,7 @@ function HomePage(props) {
                         <th scope="row">{factures.uniteLegale.dateCreationUniteLegale}</th>
                         <th scope="row">{factures.uniteLegale.activitePrincipaleUniteLegale}</th>
                         <th scope="row">{factures.adresseEtablissement.numeroVoieEtablissement + " " + factures.adresseEtablissement.typeVoieEtablissement + " " + factures.adresseEtablissement.libelleVoieEtablissement + " " + factures.adresseEtablissement.complementAdresseEtablissement}</th>
-                        <th scope="row">{factures.adresseEtablissement.codePostalEtablissement} €</th>
+                        <th scope="row">{factures.adresseEtablissement.codePostalEtablissement}</th>
                         <th scope="row">{factures.adresseEtablissement.libelleCommuneEtablissement}</th>
                         <th scope="row">{factures.uniteLegale.categorieEntreprise}</th>
                     </tr>
