@@ -17,7 +17,6 @@ function HomePage(props) {
     };
     return (
         <>
-            <p>47759310700048</p>
             {factures &&
                 <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
                     <thead style={{backgroundColor: "aliceblue"}}>
@@ -49,7 +48,7 @@ function HomePage(props) {
                 </table>
             }
             <>
-            <input id={"searchSiretField"} type={"text"}/>
+                <input style={{display:"block", margin:"20px auto 0 auto"}} id={"searchSiretField"} type={"text"}/>
                 <button onClick={searchEntreprise}>Chercher</button>
             </>
         </>
