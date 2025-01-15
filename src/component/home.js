@@ -11,7 +11,7 @@ function HomePage(props) {
                 setFactures(response.data.data);
             })
     }, []);
-    const onChangeCheckBox = (e) => {
+    const searchEntreprise = (e) => {
         if(e.target.checked === false){
             setSelected(oldSelected => {
                 return oldSelected.filter(id => id !== e.target.value)
