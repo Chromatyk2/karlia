@@ -12,7 +12,7 @@ function HomePage(props) {
             }
         })
         .then(function(response){
-            setFactures(response.data.data);
+            setFactures(response);
         })
     }, []);
     const searchEntreprise = (e) => {
@@ -26,7 +26,9 @@ function HomePage(props) {
     };
     return (
         <>
-                    <button onClick={searchEntreprise}>Envoyer</button>
+            {factures &&
+                JSON.stringify(factures)
+            }
         </>
     )
 }
