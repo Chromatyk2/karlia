@@ -34,7 +34,7 @@ function HomePage(props) {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
+                    <tr>
                         <th scope="row">{factures.denominationUniteLegale}</th>
                         <th scope="row">{factures.siren}</th>
                         <th scope="row">{factures.siret}</th>
