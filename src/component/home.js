@@ -27,7 +27,7 @@ function HomePage(props) {
     return (
         <>
             {factures &&
-                JSON.stringify(factures)
+                JSON.stringify(factures, null, 2)
             }
         </>
     )
