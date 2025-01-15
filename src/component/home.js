@@ -5,8 +5,9 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState([]);
     const [selected,setSelected] = useState([]);
-    useEffect(() => {
-        Axios.get('https://api.insee.fr/api-sirene/3.11/siret/47759310700048',{
+    const searchEntreprise = (e) => {
+        const siret = document.getElementById('searchSiretField').value;
+        Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
             headers: {
                 'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
             }
@@ -14,21 +15,18 @@ function HomePage(props) {
         .then(function(response){
             setFactures(response);
         })
-    }, []);
-    const searchEntreprise = (e) => {
-        if(e.target.checked === false){
-            setSelected(oldSelected => {
-                return oldSelected.filter(id => id !== e.target.value)
-            })
-        }else{
-            setSelected(selectedArray => [...selectedArray,e.target.value]);
-        }
     };
     return (
         <>
-            {factures &&
+            {factures ?
                 JSON.stringify(factures, null, 2)
+                :
+                <>
+                    <input id={"searchSiretField"} type={"text"}/>
+                    <button onClick={searchEntreprise}>Chercher</button>
+                </>
             }
+
         </>
     )
 }
