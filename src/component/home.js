@@ -18,7 +18,7 @@ function HomePage(props) {
     };
     return (
         <>
-            {factures ?
+            {factures.length > 0 ?
                 JSON.stringify(factures, null, 2)
                 :
                 <>
