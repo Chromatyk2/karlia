@@ -4,10 +4,15 @@ import Axios from "axios";
 import { Client } from "@hubspot/api-client";
 
 function HomePage(props) {
-    const hubspotClient = new Client({ accessToken: process.env.REACT_APP_CLIENT_SECRET });
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
-    cnsole.log(hubspotClient)
+    useEffect(() => {
+        Axios.get(
+            '/api/getCompaniesHubspot',
+        ).then(function(response){
+            setMyCompanies(response.data);
+        })
+    }, []);
     const searchEntreprise = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
