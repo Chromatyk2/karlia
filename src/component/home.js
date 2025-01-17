@@ -55,7 +55,7 @@ function HomePage(props) {
                     </tr>
                     </thead>
                     <tbody>
-                    {factures.etablissements.data.map((val, key) => {
+                    {factures.etablissements.map((val, key) => {
                         return (
                             <tr>
                                 <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
