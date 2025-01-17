@@ -24,7 +24,7 @@ function HomePage(props) {
             .then(function(response){
                 if(response.data.etablissements.filter(etablissement => etablissement.siret == siret).length > 0){
                     setFactures(response.data.etablissements.filter(etablissement => etablissement.siret == siret));
-                }else if(response.data.etablissements.find((etablissement) => etablissement.uniteLegale.denominationUniteLegale.includes(name)).length > 0){
+                }else if(response.data.etablissements.filter(etablissement => etablissement.uniteLegale.denominationUniteLegale == name).length > 0){
                     setFactures(response.data.etablissements.find((etablissement) => etablissement.uniteLegale.denominationUniteLegale.includes(name)));
                 }
             })
