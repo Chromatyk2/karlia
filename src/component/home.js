@@ -15,7 +15,7 @@ function HomePage(props) {
     const searchEntrepriseBySiret = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         const name = document.getElementById('searchNameField').value;
-        if(siret != "" || siret != null){
+        if(siret != " " || siret != null){
             Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=siret:'+siret,{
                 headers: {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
