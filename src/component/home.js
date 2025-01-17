@@ -82,7 +82,7 @@ function HomePage(props) {
                     <tbody>
                     {factures.map((val, key) => {
                         return (
-                            <tr>
+                            <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
                                 <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
                                 <th scope="row">{val.siren}</th>
                                 <th scope="row">{val.siret}</th>
