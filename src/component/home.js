@@ -5,11 +5,11 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
     useEffect(() => {
-        axios.get(
+        Axios.get(
             'https://api.hubapi.com/crm/v3/objects/contacts',
             {
                 headers: {
-                    Authorization: `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
+                    Authorization: `Bearer ${process.env.REACT_APP_CLIENT_ID}`,
                     'Content-Type': 'application/json',
                 },
             },
