@@ -15,6 +15,7 @@ function HomePage(props) {
     const searchEntrepriseBySiret = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         const name = document.getElementById('searchNameField').value;
+        const cp = document.getElementById('searchCpField').value;
         if(siret.length > 0){
             Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=siret:'+siret,{
                 headers: {
@@ -24,7 +25,25 @@ function HomePage(props) {
                 setFactures(response.data.etablissements.filter(etablissement => etablissement.siret == siret));
             })
         }else if(name.length > 0 ){
-            Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:"'+name+'"&nombre=1000',{
+            if(cp.length > 0 ){
+                Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:"'+name+'" AND codePostalEtablissement:'+cp+'&nombre=1000',{
+                    headers: {
+                        'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
+                    }
+                }).then(function(response){
+                    setFactures(response.data.etablissements);
+                })
+            }else{
+                Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:"'+name+'"&nombre=1000',{
+                    headers: {
+                        'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
+                    }
+                }).then(function(response){
+                    setFactures(response.data.etablissements);
+                })
+            }
+        }else if (cp.length > 0){
+            Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=codePostalEtablissement:'+cp+'&nombre=1000',{
                 headers: {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
                 }
@@ -71,8 +90,12 @@ function HomePage(props) {
                 </table>
             }
             <>
-                <input style={{display: "block", margin: "20px auto 0 auto"}} id={"searchSiretField"} type={"text"}/>
-                <input style={{display: "block", margin: "20px auto 0 auto"}} id={"searchNameField"} type={"text"}/>
+                <input placeholder={"SIRET"} style={{display: "block", margin: "20px auto 0 auto"}}
+                       id={"searchSiretField"} type={"text"}/>
+                <input placeholder={"Nom de l'entreprise"} style={{display: "block", margin: "20px auto 0 auto"}}
+                       id={"searchNameField"} type={"text"}/>
+                <input placeholder={"Code Postal"} style={{display: "block", margin: "20px auto 0 auto"}}
+                       id={"searchCpField"} type={"text"}/>
                 <button onClick={searchEntrepriseBySiret}>Chercher</button>
             </>
         </>
