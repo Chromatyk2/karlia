@@ -16,28 +16,15 @@ function HomePage(props) {
         const siret = document.getElementById('searchSiretField').value;
         const name = document.getElementById('searchNameField').value;
         console.log(siret)
-        if(siret != null || siret != ""){
-            Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
+            Axios.get('https://api.insee.fr/api-sirene/3.11/siret',{
                 headers: {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
                 }
             })
-                .then(function(response){
-                    setFactures(response.data);
-                })
-        }else{
-            Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:'+name,{
-                headers: {
-                    'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
-                }
+            .then(function(response){
+                console.log(response.data)
             })
-                .then(function(response){
-                    setFactures(response.data);
-                })
-
-        }
     };
-    console.log(factures)
     return (
         <>
             {factures &&
