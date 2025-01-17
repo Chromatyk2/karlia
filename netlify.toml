@@ -1,16 +1,8 @@
+[functions]
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"
 [[redirects]]
-  from = "/api/*"
-  to = "https://chromatyk-server.cleverapps.io/api/:splat"
-  status = 200
   force = true
-
-[[redirects]]
- from = '/*'
- to = '/index.html'
- status = 200
-
-[[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
-  [headers.values]
-  Access-Control-Allow-Origin = "*"
+  from = "/api/*"
+  status = 200
+  to = "/.netlify/functions/api/:splat"
