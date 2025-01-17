@@ -4,6 +4,7 @@ import Axios from "axios";
 
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
+    const [myCompany,setMyCompany] = useState(null);
     useEffect(() => {
         Axios.get(
             'https://api.hubapi.com/crm/v3/objects/companies',
@@ -12,10 +13,10 @@ function HomePage(props) {
                     'Authorization': `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
                     'Content-Type': 'application/json',
                 },
-            },
-            (err, data) => {
-                // Handle the API response
             }
+            .then(function(response){
+                setMyCompany(response.data.etablissement);
+            })
         );
     }, []);
     const searchEntreprise = (e) => {
@@ -29,6 +30,7 @@ function HomePage(props) {
             setFactures(response.data.etablissement);
         })
     };
+    console.log(myCompany)
     return (
         <>
             {factures &&
