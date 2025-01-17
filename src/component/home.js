@@ -34,7 +34,7 @@ function HomePage(props) {
         }
 
     };
-    console.log(factures)
+    console.log(siret.length)
     return (
         <>
             {factures &&
