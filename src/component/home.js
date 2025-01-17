@@ -10,6 +10,7 @@ function HomePage(props) {
             {
                 headers: {
                     'Authorization': `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
+                    'Client-Id': process.env.REACT_APP_CLIENT_ID,
                     'Content-Type': 'application/json',
                 },
             },
