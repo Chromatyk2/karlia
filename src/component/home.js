@@ -7,15 +7,7 @@ function HomePage(props) {
     const hubspotClient = new Client({ accessToken: process.env.REACT_APP_CLIENT_SECRET });
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
-    useEffect(() => {
-        hubspotClient.crm.objects.companies.read
-            .then((results) => {
-                console.log(results)
-            })
-            .catch((err) => {
-                console.error(err)
-            })
-    }, []);
+    cnsole.log(hubspotClient)
     const searchEntreprise = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
