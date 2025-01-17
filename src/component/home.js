@@ -1,23 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import '../App.css'
 import Axios from "axios";
+import { Client } from "@hubspot/api-client";
 
 function HomePage(props) {
+    const hubspotClient = new Client({ accessToken: process.env.REACT_APP_CLIENT_SECRET });
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
-        Axios.get(
-            'https://api.hubapi.com/crm/v3/objects/companies',
-            {
-                headers:{
-                    'Authorization': `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
-                    'Client-Id': process.env.REACT_APP_CLIENT_ID,
-                    'Content-Type': 'application/json',
-                }
-            }
-        ).then(function(response){
-            setMyCompanies(response.data);
-        })
+        hubspotClient.crm.objects.companies.read
+            .then((results) => {
+                console.log(results)
+            })
+            .catch((err) => {
+                console.error(err)
+            })
     }, []);
     const searchEntreprise = (e) => {
         const siret = document.getElementById('searchSiretField').value;
