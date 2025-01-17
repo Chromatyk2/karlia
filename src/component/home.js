@@ -6,9 +6,8 @@ function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
-        Axios.get(
-            '/api/getCompaniesHubspot',
-        ).then(function(response){
+        Axios.get('/api/getCompaniesHubspot')
+        .then(function(response){
             setMyCompanies(response.data);
         })
     }, []);
