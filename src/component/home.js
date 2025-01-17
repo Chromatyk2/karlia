@@ -29,7 +29,7 @@ function HomePage(props) {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
                 }
             }).then(function(response){
-                setFactures(response.data.etablissements.filter(etablissement => etablissement.uniteLegale.denominationUniteLegale == name));
+                setFactures(response.data.etablissements);
             })
         }
 
