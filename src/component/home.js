@@ -55,18 +55,18 @@ function HomePage(props) {
                     </tr>
                     </thead>
                     <tbody>
-                    {factures.data.map((val, key) => {
+                    {factures.etablissements.data.map((val, key) => {
                         return (
                             <tr>
-                                <th scope="row">{val.etablissements.uniteLegale.denominationUniteLegale}</th>
-                                <th scope="row">{val.etablissements.siren}</th>
-                                <th scope="row">{val.etablissements.siret}</th>
-                                <th scope="row">{val.etablissements.uniteLegale.dateCreationUniteLegale}</th>
-                                <th scope="row">{val.etablissements.uniteLegale.activitePrincipaleUniteLegale}</th>
-                                <th scope="row">{val.etablissements.adresseEtablissement.numeroVoieEtablissement + " " + val.etablissements.adresseEtablissement.typeVoieEtablissement + " " + val.etablissements.adresseEtablissement.libelleVoieEtablissement + " " + val.etablissements.adresseEtablissement.complementAdresseEtablissement}</th>
-                                <th scope="row">{val.etablissements.adresseEtablissement.codePostalEtablissement}</th>
-                                <th scope="row">{val.etablissements.adresseEtablissement.libelleCommuneEtablissement}</th>
-                                <th scope="row">{val.etablissements.uniteLegale.categorieEntreprise}</th>
+                                <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
+                                <th scope="row">{val.siren}</th>
+                                <th scope="row">{val.siret}</th>
+                                <th scope="row">{val.uniteLegale.dateCreationUniteLegale}</th>
+                                <th scope="row">{val.uniteLegale.activitePrincipaleUniteLegale}</th>
+                                <th scope="row">{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement + " " + val.adresseEtablissement.complementAdresseEtablissement}</th>
+                                <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
+                                <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
+                                <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
                             </tr>
                         )
                     })}
