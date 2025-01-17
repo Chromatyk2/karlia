@@ -15,7 +15,7 @@ function HomePage(props) {
     const searchEntrepriseBySiret = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         const name = document.getElementById('searchNameField').value;
-        if(siret != " " || siret != null){
+        if(siret.length > 0){
             Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=siret:'+siret,{
                 headers: {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
@@ -23,7 +23,7 @@ function HomePage(props) {
             }).then(function(response){
                 setFactures(response.data.etablissements.filter(etablissement => etablissement.siret == siret));
             })
-        }else if(name != "" ||name != null){
+        }else if(name.length > 0 ){
             Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:'+name+'&nombre=1000',{
                 headers: {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
@@ -34,7 +34,6 @@ function HomePage(props) {
         }
 
     };
-    console.log(siret.length)
     return (
         <>
             {factures &&
