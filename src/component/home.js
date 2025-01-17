@@ -56,13 +56,15 @@ function HomePage(props) {
     return (
         <>
             <>
-                <input placeholder={"SIRET"} style={{width:"200px", height:"20px", display: "block", margin: "20px auto 0 auto"}}
+                <input placeholder={"SIRET"}
                        id={"searchSiretField"} type={"text"}/>
-                <input placeholder={"Nom de l'entreprise"} style={{display: "block", margin: "20px auto 0 auto"}}
-                       id={"searchNameField"} type={"text"}/>
-                <input placeholder={"Code Postal"} style={{display: "block", margin: "20px auto 0 auto"}}
-                       id={"searchCpField"} type={"text"}/>
-                <button onClick={searchEntrepriseBySiret}>Chercher</button>
+                <div style={{display:"flex",justifyContent:"center",gap:"20px",flexFlow:"row"}}>
+                    <input placeholder={"Nom de l'entreprise"}
+                           id={"searchNameField"} type={"text"}/>
+                    <input placeholder={"Code Postal"}
+                           id={"searchCpField"} type={"text"}/>
+                    <button onClick={searchEntrepriseBySiret}>Chercher</button>
+                </div>
             </>
             {factures &&
                 <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
@@ -98,7 +100,7 @@ function HomePage(props) {
                     </tbody>
                 </table>
             }
-        </>
+        </div>
     )
 }
 
