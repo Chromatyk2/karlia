@@ -24,7 +24,7 @@ function HomePage(props) {
                 setFactures(response.data.etablissements.filter(etablissement => etablissement.siret == siret));
             })
         }else if(name != "" ||name != null){
-            Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=siret:'+siret+' AND denominationUniteLegale:'+name+'&nombre=1000',{
+            Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:'+name+'&nombre=1000',{
                 headers: {
                     'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
                 }
