@@ -90,7 +90,7 @@ function HomePage(props) {
                                 <th scope="row">{val.siret}</th>
                                 <th scope="row">{val.uniteLegale.dateCreationUniteLegale}</th>
                                 <th scope="row">{val.uniteLegale.activitePrincipaleUniteLegale}</th>
-                                <th scope="row">{val.adresseEtablissement.numeroVoieEtablissement && val.adresseEtablissement.numeroVoieEtablissement + " " +val.adresseEtablissement.typeVoieEtablissement && val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement && val.adresseEtablissement.libelleVoieEtablissement + " " + val.adresseEtablissement.complementAdresseEtablissement && val.adresseEtablissement.complementAdresseEtablissement}</th>
+                                <th scope="row">{val.adresseEtablissement.numeroVoieEtablissement + " " +val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement + " " + val.adresseEtablissement.complementAdresseEtablissement}</th>
                                 <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
                                 <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
                                 <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
