@@ -15,7 +15,7 @@ function HomePage(props) {
                 },
             }
             .then(function(response){
-                setMyCompany(response.data.etablissement);
+                setMyCompany(response.data);
             })
         );
     }, []);
