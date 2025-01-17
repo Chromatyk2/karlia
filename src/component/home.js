@@ -4,20 +4,20 @@ import Axios from "axios";
 
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
+    const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
         Axios.get(
             'https://api.hubapi.com/crm/v3/objects/companies',
             {
-                headers: {
+                headers:{
                     'Authorization': `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
                     'Client-Id': process.env.REACT_APP_CLIENT_ID,
                     'Content-Type': 'application/json',
-                },
-            },
-            (err, data) => {
-                // Handle the API response
+                }
             }
-        );
+        ).then(function(response){
+            setMyCompanies(response.data);
+        })
     }, []);
     const searchEntreprise = (e) => {
         const siret = document.getElementById('searchSiretField').value;
