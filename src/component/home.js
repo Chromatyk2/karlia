@@ -56,7 +56,7 @@ function HomePage(props) {
     return (
         <>
             <>
-                <input placeholder={"SIRET"} style={{display: "block", margin: "20px auto 0 auto"}}
+                <input placeholder={"SIRET"} style={{width:"200px", height:"20px", display: "block", margin: "20px auto 0 auto"}}
                        id={"searchSiretField"} type={"text"}/>
                 <input placeholder={"Nom de l'entreprise"} style={{display: "block", margin: "20px auto 0 auto"}}
                        id={"searchNameField"} type={"text"}/>
