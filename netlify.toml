@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://chromatyk-server.cleverapps.io/api/:splat"
+  to = "https://karlia.fr/app/api/v2/:splat"
   status = 200
   force = true
 

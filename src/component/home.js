@@ -6,8 +6,15 @@ function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
-        Axios.get('/api/getCompaniesHubspot')
-        .then(function(response){
+        Axios.get(
+            'https://api.hubapi.com/crm/v3/objects/companies',
+            {
+                headers:{
+                    'Authorization': `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`,
+                    'Content-Type': 'application/json',
+                }
+            }
+        ).then(function(response){
             setMyCompanies(response.data);
         })
     }, []);
