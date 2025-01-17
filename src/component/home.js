@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../App.css'
 import Axios from "axios";
-import { Client } from "@hubspot/api-client";
 
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
