@@ -55,7 +55,6 @@ function HomePage(props) {
     };
     return (
         <>
-            <>
                 <input placeholder={"SIRET"}
                        id={"searchSiretField"} type={"text"}/>
                 <div style={{display:"flex",justifyContent:"center",gap:"20px",flexFlow:"row"}}>
@@ -65,7 +64,6 @@ function HomePage(props) {
                            id={"searchCpField"} type={"text"}/>
                     <button onClick={searchEntrepriseBySiret}>Chercher</button>
                 </div>
-            </>
             {factures &&
                 <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
                     <thead style={{backgroundColor: "aliceblue"}}>
@@ -100,7 +98,7 @@ function HomePage(props) {
                     </tbody>
                 </table>
             }
-        </div>
+        </>
     )
 }
 
