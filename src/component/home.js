@@ -12,17 +12,31 @@ function HomePage(props) {
             console.log(response.data);
         })
     }, []);
-    const searchEntreprise = (e) => {
+    const searchEntrepriseBySiret = (e) => {
         const siret = document.getElementById('searchSiretField').value;
-        Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
-            headers: {
-                'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
-            }
-        })
-        .then(function(response){
-            setFactures(response.data.etablissement);
-        })
+        const name = document.getElementById('searchNameField').value;
+        if(siret !== null){
+            Axios.get('https://api.insee.fr/api-sirene/3.11/siret/'+siret,{
+                headers: {
+                    'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
+                }
+            })
+                .then(function(response){
+                    setFactures(response.data);
+                })
+        }else{
+            Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:'+name,{
+                headers: {
+                    'X-INSEE-Api-Key-Integration':'b4bd23f3-1146-4e49-bd23-f31146ae49db'
+                }
+            })
+                .then(function(response){
+                    setFactures(response.data);
+                })
+
+        }
     };
+    console.log(factures)
     return (
         <>
             {factures &&
@@ -56,8 +70,9 @@ function HomePage(props) {
                 </table>
             }
             <>
-                <input style={{display:"block", margin:"20px auto 0 auto"}} id={"searchSiretField"} type={"text"}/>
-                <button onClick={searchEntreprise}>Chercher</button>
+                <input style={{display: "block", margin: "20px auto 0 auto"}} id={"searchSiretField"} type={"text"}/>
+                <input style={{display: "block", margin: "20px auto 0 auto"}} id={"searchNameField"} type={"text"}/>
+                <button onClick={searchEntrepriseBySiret}>Chercher</button>
             </>
         </>
     )
