@@ -11,6 +11,9 @@ function HomePage(props) {
         ).then(function(response){
             console.log(response.data);
         })
+        Axios.get(
+            '/api/hello',
+        )
     }, []);
     const searchEntrepriseBySiret = (e) => {
         const siret = document.getElementById('searchSiretField').value;
