@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
-import axios from "axios";
+import Axios from "axios";
 
 const api = express();
 
@@ -8,7 +8,7 @@ const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
 router.get("/getCompaniesHubspot", (req, res, next)=>{
 
-    axios.get(
+    Axios.get(
         'https://api.hubapi.com /crm/v3/objects/companies',
         {
             headers: {
