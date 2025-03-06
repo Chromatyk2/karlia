@@ -6,8 +6,8 @@ const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
-router.get("/getCompaniesHubspot", (req, res, next)=>{
-    axios.get(
+router.post("/getCompaniesHubspot", (req, res, next)=>{
+    axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
