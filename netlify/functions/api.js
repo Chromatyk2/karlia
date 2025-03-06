@@ -13,23 +13,6 @@ router.post("/getCompaniesHubspot", (req, res, next)=>{
                 headers: {
                     'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
                     'content-type': `application/json`
-                },
-                associations: [
-                    {
-                        types: [
-                            {
-                                "associationCategory": "HUBSPOT_DEFINED",
-                                "associationTypeId": 450
-                            }
-                        ],
-                        to: {
-                            "id": "30750051878"
-                        }
-                    }
-                ],
-                objectWriteTraceId: "string",
-                properties: {
-                    "name": "test"
                 }
         }
     ).then(response => res.json(response.data))
