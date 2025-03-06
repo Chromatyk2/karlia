@@ -11,7 +11,7 @@ function HomePage(props) {
         ).then(function(response){
             console.log(response.data);
         })
-        Axios.post(
+        Axios.get(
             '/api/getCompaniesHubspot',
         ).then(function(response){
             console.log(response.data);
