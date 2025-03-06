@@ -7,6 +7,11 @@ function HomePage(props) {
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
         Axios.post(
+            '/api/createCompanie',
+        ).then(function(response){
+            console.log(response.data);
+        })
+        Axios.post(
             '/api/getCompaniesHubspot',
         ).then(function(response){
             console.log(response.data);
