@@ -5,18 +5,16 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
-    useEffect(() => {
-        Axios.get(
-            '/api/createCompanie',
-        ).then(function(response){
-            console.log(response.data);
-        })
-        Axios.get(
-            '/api/getCompaniesHubspot',
-        ).then(function(response){
-            console.log(response.data);
-        })
-    }, []);
+    const addCompanie = (e) => {
+        const name = e.target.name;
+        console.log(name)
+        // Axios.get(
+        //     '/api/createCompanie',
+        // ).then(function(response){
+        //     console.log(response.data);
+        // })
+
+    };
     const searchEntrepriseBySiret = (e) => {
         const siret = document.getElementById('searchSiretField').value;
         const name = document.getElementById('searchNameField').value;
@@ -82,6 +80,7 @@ function HomePage(props) {
                         <th scope="col">Code Postale</th>
                         <th scope="col">Ville</th>
                         <th scope="col">Type d'entreprise</th>
+                        <th scope="col">Ajouter</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -97,6 +96,7 @@ function HomePage(props) {
                                 <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
                                 <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
                                 <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
+                                <th scope="row"><button onClick={addCompanie} name={val.uniteLegale.denominationUniteLegale}>Ajouter</button></th>
                             </tr>
                         )
                     })}
