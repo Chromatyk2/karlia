@@ -1,19 +1,18 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
-import axios from "axios";
+import Axios from 'axios';
 
 const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
 router.post("/getCompaniesHubspot", (req, res, next)=>{
-    axios.post(
+    Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
                 'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
                 'content-type': `application/json`
-
             },
             data: {
                 associations: [
