@@ -5,6 +5,13 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
+    useEffect(() => {
+        Axios.get(
+            '/api/getCompaniesHubspot',
+        ).then(function(response){
+            console.log(response.data);
+        })
+    }, []);
     const addCompanie = (e) => {
         const name = e.target.name;
         console.log(name)
