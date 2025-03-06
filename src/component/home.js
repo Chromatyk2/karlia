@@ -6,7 +6,7 @@ function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
-        Axios.get(
+        Axios.post(
             '/api/getCompaniesHubspot',
         ).then(function(response){
             console.log(response.data);
