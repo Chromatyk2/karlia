@@ -12,7 +12,7 @@ router.get("/getCompaniesHubspot", (req, res, next)=>{
         {
             headers: {
                 Authorization: `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
-                Content-Type:"application/json"
+                ContentType:"application/json"
             },
             properties:{
                 "name": "Test Pierre"
