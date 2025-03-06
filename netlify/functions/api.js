@@ -10,7 +10,9 @@ router.get("/createCompanie", (req, res, next)=>{
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
-            'name':"Test L4M"
+            properties: {
+                "name": "Test Pierre"
+            }
         },
         {
             headers: {
