@@ -7,7 +7,12 @@ function HomePage(props) {
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
         Axios.get(
-            '/api/getCompaniesHubspot',
+            '/api/getCompaniesHubspot', {
+                headers: {
+                    'authorization': 'Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0',
+                    'content-type': 'application/json'
+                }
+            }
         ).then(function(response){
             console.log(response.data);
         })
