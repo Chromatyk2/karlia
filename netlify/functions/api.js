@@ -11,24 +11,29 @@ router.post("/getCompaniesHubspot", (req, res, next)=>{
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
-                "Authorization": 'Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0'
+                'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
+                'content-type': application/json
+
             },
-            associations: [
-                {
-                    types: [
-                        {
-                            "associationCategory": "HUBSPOT_DEFINED",
-                            "associationTypeId": 450
+            data: {
+                associations: [
+                    {
+                        types: [
+                            {
+                                "associationCategory": "HUBSPOT_DEFINED",
+                                "associationTypeId": 450
+                            }
+                        ],
+                        to: {
+                            "id": "30750051148"
                         }
-                    ],
-                    to: {
-                        "id": "30750051148"
                     }
+                ],
+                objectWriteTraceId: "string",
+                properties: {
+                    "name": "test"
                 }
-            ],
-            objectWriteTraceId: "string",
-            properties: {
-                "name": "test"
+
             }
         }
     ).then(response => res.json(response.data))
