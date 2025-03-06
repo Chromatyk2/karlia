@@ -10,21 +10,21 @@ router.get("/createCompanie", (req, res, next)=>{
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
-            "associations": [
+            associations: [
                 {
-                    "types": [
+                    types: [
                         {
                             "associationCategory": "HUBSPOT_DEFINED",
                             "associationTypeId": 450
                         }
                     ],
-                    "to": {
+                    to: {
                         "id": "30750051878"
                     }
                 }
             ],
-            "objectWriteTraceId": "string",
-            "properties": {
+            objectWriteTraceId: "string",
+            properties: {
                 "name": "test"
             }
         },
