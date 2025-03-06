@@ -8,11 +8,11 @@ function HomePage(props) {
     const addCompanie = (e) => {
         const name = e.target.name;
         console.log(name)
-        // Axios.get(
-        //     '/api/createCompanie',
-        // ).then(function(response){
-        //     console.log(response.data);
-        // })
+        Axios.get(
+            '/api/createCompanie/'+name,
+        ).then(function(response){
+            console.log(response.data);
+        })
 
     };
     const searchEntrepriseBySiret = (e) => {

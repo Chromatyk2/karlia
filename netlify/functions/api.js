@@ -6,12 +6,14 @@ const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
-router.get("/createCompanie", (req, res, next)=>{
+router.get("/createCompanie/:name", (req, res, next)=>{
+
+    const name = req.params.name;
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             properties: {
-                "name": "Test Pierre"
+                "name": name
             }
         },
         {
