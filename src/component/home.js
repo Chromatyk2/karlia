@@ -6,7 +6,7 @@ function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
-        Axios.post(
+        Axios.get(
             '/api/createCompanie',
         ).then(function(response){
             console.log(response.data);

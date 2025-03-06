@@ -6,7 +6,7 @@ const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
-router.post("/createCompanie", (req, res, next)=>{
+router.get("/createCompanie", (req, res, next)=>{
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
