@@ -12,7 +12,7 @@ router.post("/getCompaniesHubspot", (req, res, next)=>{
         {
             headers: {
                 'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
-                'content-type': application/json
+                'content-type': `application/json`
 
             },
             data: {
@@ -25,7 +25,7 @@ router.post("/getCompaniesHubspot", (req, res, next)=>{
                             }
                         ],
                         to: {
-                            "id": "30750051148"
+                            "id": "30750051878"
                         }
                     }
                 ],
