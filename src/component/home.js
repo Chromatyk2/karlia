@@ -14,7 +14,7 @@ function HomePage(props) {
     }, []);
     const addCompanie = (e) => {
         const name = e.target.name;
-        const siret = e.target.siret;
+        const siret = e.target.value;
         Axios.get(
             '/api/createCompanie/'+name+'/'+siret
         ).then(function(response){
@@ -103,7 +103,7 @@ function HomePage(props) {
                                 <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
                                 <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
                                 <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
-                                <th scope="row"><button onClick={addCompanie} siret={val.siret} name={val.uniteLegale.denominationUniteLegale}>Ajouter</button></th>
+                                <th scope="row"><button onClick={addCompanie} value={val.siret} name={val.uniteLegale.denominationUniteLegale}>Ajouter</button></th>
                             </tr>
                         )
                     })}
