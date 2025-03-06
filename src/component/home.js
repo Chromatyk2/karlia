@@ -7,33 +7,7 @@ function HomePage(props) {
     const [myCompanies,setMyCompanies] = useState(null);
     useEffect(() => {
         Axios.post(
-            'https://api.hubapi.com/crm/v3/objects/companies',
-            {
-                headers: {
-                    'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
-                    'content-type': `application/json`
-                },
-                data: {
-                    associations: [
-                        {
-                            types: [
-                                {
-                                    "associationCategory": "HUBSPOT_DEFINED",
-                                    "associationTypeId": 450
-                                }
-                            ],
-                            to: {
-                                "id": "30750051878"
-                            }
-                        }
-                    ],
-                    objectWriteTraceId: "string",
-                    properties: {
-                        "name": "test"
-                    }
-
-                }
-            }
+            '/api/getCompaniesHubspot',
         ).then(function(response){
             console.log(response.data);
         })

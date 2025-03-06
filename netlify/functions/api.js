@@ -10,11 +10,10 @@ router.post("/getCompaniesHubspot", (req, res, next)=>{
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
-            headers: {
-                'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
-                'content-type': `application/json`
-            },
-            data: {
+                headers: {
+                    'authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
+                    'content-type': `application/json`
+                },
                 associations: [
                     {
                         types: [
@@ -32,8 +31,6 @@ router.post("/getCompaniesHubspot", (req, res, next)=>{
                 properties: {
                     "name": "test"
                 }
-
-            }
         }
     ).then(response => res.json(response.data))
 });
