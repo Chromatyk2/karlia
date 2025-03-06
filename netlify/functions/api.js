@@ -6,7 +6,7 @@ const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
-router.post("/createCompanie/:name/:siret", (req, res, next)=>{
+router.get("/createCompanie/:name/:siret", (req, res, next)=>{
 
     const name = req.params.name;
     const siret = req.params.siret;
