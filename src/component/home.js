@@ -14,12 +14,9 @@ function HomePage(props) {
     }, []);
     const addCompanie = (e) => {
         const name = e.target.name;
-        console.log(name)
-        Axios.post(
-            '/api/createCompanie/',
-            {
-                name: name
-            }
+        const siret = e.target.siret;
+        Axios.get(
+            '/api/createCompanie/'+name+'/'+siret
         ).then(function(response){
             console.log(response.data);
         })

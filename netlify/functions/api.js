@@ -6,14 +6,16 @@ const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
-router.post("/createCompanie", (req, res, next)=>{
+router.post("/createCompanie/:name/:siret", (req, res, next)=>{
 
-    const name = req.body.name;
+    const name = req.params.name;
+    const siret = req.params.siret;
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             properties: {
-                "name": name
+                "name": name,
+                "company_siret": siret
             }
         },
         {
