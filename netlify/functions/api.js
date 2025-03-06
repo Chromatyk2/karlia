@@ -11,8 +11,7 @@ router.post("/createCompanie", (req, res, next)=>{
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
-                'Authorization': `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`,
-                'Content-Type': `application/json`
+                Authorization: `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`
             },
             data: {
                 associations: [
@@ -42,7 +41,7 @@ router.get("/getCompaniesHubspot", (req, res, next)=>{
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
-                Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`
+                Authorization: `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`
             },
         }
     ).then(response => res.json(response.data))
