@@ -82,16 +82,21 @@ function HomePage(props) {
                             <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <p>Informations juridiques</p>
                             <div style={{display:"flex",gap:"15px"}}>
-                                <div style={{width:"400px",borderRight:"3px solid gray"}}>
+                                <div style={{width: "400px", borderRight: "3px solid gray"}}>
                                     <p>SIRET : {val.siret}</p>
                                     <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
                                     <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
                                     <p>Type d'entreprise : {val.uniteLegale.categorieEntreprise}</p>
+                                    <p>Code NAF : {val.uniteLegale.activitePrincipaleUniteLegale}</p>
+                                    <p>Effectif : {val.uniteLegale.trancheEffectifsUniteLegale}</p>
                                 </div>
-                                <div style={{width:"300px"}}>
+                                <div style={{width: "300px"}}>
                                     <p>Adresse de l'entreprise</p>
                                     <p>{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement}</p>
                                     <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
+                                    <p>{val.adresseEtablissement.codePostalEtablissement}</p>
+                                    <p>{val.adresseEtablissement.libelleCommuneEtablissement}</p>
+
                                 </div>
                             </div>
                         </div>
