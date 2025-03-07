@@ -21,8 +21,7 @@ function HomePage(props) {
     };
     function openModal(e) {
         const companie = e.target.value;
-        console.log(factures[companie]);
-        setSelectedCompanie(companie);
+        setSelectedCompanie(factures[companie]);
         setIsOpen(true);
     }
     function closeModal() {
