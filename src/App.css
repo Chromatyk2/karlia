@@ -66,6 +66,36 @@ input{
   background: #575656;
   cursor: pointer;
 }
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgba(0,0,0,0.5)!important;
+}
+.validationModalContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.validationButton{
+  width: 80px;
+  background-color: #4dc94d;
+  border: none;
+  color: #fefefe;
+}
+.validationButton:hover{
+  background-color: #277b27;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 3px #277b27);
+}
+.refuseButton{
+  width: 80px;
+  background-color: #d62828;
+  border: none;
+  color: #fefefe;
+}
+.refuseButton:hover{
+  background-color: #a51c1c;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 3px #a51c1c);
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

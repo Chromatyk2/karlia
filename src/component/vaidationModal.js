@@ -4,8 +4,8 @@ function ValidationModal(props) {
     console.log(props.companie)
     return (
         <>
-            <button>Oui</button>
-            <button>Non</button>
+            <button className={"validationButton"}>Oui</button>
+            <button className={"refuseButton"}>Non</button>
         </>
     );
 }

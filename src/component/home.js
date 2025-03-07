@@ -88,9 +88,9 @@ function HomePage(props) {
                 <input style={{marginBottom: "15px", width:"100%"}} placeholder={"SIRET"}
                        id={"searchSiretField"} type={"text"}/>
                 <div style={{display: "flex", justifyContent: "center", gap: "20px", flexFlow: "row"}}>
-                    <input style={{margin: 0, width:"240px"}} placeholder={"Nom de l'entreprise"}
+                    <input style={{margin: 0}} placeholder={"Nom de l'entreprise"}
                            id={"searchNameField"} type={"text"}/>
-                    <input style={{margin: 0, width:"240px"}} placeholder={"Code Postal"}
+                    <input style={{margin: 0}} placeholder={"Code Postal"}
                            id={"searchCpField"} type={"text"}/>
                 </div>
                 <button className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
@@ -153,12 +153,12 @@ function HomePage(props) {
                                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                                        contentLabel="Example Modal">
                                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-                                        <p style={{color: "white"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
+                                        <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
                                         <button style={{color: "white", border: "none", background: "none"}}
                                                 onClick={closeModal}>X
                                         </button>
                                     </div>
-                                    <div className={"streamsModalContainer"}>
+                                    <div className={"validationModalContainer"}>
                                         <ValidationModal companie={val} change={closeModal}/>
                                     </div>
                                 </Modal>
