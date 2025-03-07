@@ -19,7 +19,8 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif", (req, re
         {
             properties: {
                 "name": name,
-                "company_siret": siret
+                "company_siret": siret,
+                "createdate": create
             }
         },
         {
