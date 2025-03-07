@@ -74,42 +74,28 @@ function HomePage(props) {
                        id={"searchCpField"} type={"text"}/>
             </div>
             <button onClick={searchEntrepriseBySiret}>Chercher</button>
-            {factures &&
-                <table style={{width: "90%", margin: "auto", paddingTop: "100px"}}>
-                    <thead style={{backgroundColor: "aliceblue"}}>
-                    <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">SIREN</th>
-                        <th scope="col">SIRET</th>
-                        <th scope="col">Date de Création</th>
-                        <th scope="col">Activité Principale</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Code Postale</th>
-                        <th scope="col">Ville</th>
-                        <th scope="col">Type d'entreprise</th>
-                        <th scope="col">Ajouter</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {factures.map((val, key) => {
-                        return (
-                            <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
-                                <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
-                                <th scope="row">{val.siren}</th>
-                                <th scope="row">{val.siret}</th>
-                                <th scope="row">{val.uniteLegale.dateCreationUniteLegale}</th>
-                                <th scope="row">{val.uniteLegale.activitePrincipaleUniteLegale}</th>
-                                <th scope="row">{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement + ", " + val.adresseEtablissement.complementAdresseEtablissement}</th>
-                                <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
-                                <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
-                                <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
-                                <th scope="row"><button onClick={addCompanie} value={val.siret} name={val.uniteLegale.denominationUniteLegale}>Ajouter</button></th>
-                            </tr>
-                        )
-                    })}
-                    </tbody>
-                </table>
-            }
+            <div>
+                {factures.map((val, key) => {
+                    return (
+                        <div className={"allCompaniesContainer"}>
+                            <p>{val.uniteLegale.denominationUniteLegale}</p>
+                        </div>
+                    // <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
+                    //     <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
+                    //     <th scope="row">{val.siren}</th>
+                    //     <th scope="row">{val.siret}</th>
+                    //     <th scope="row">{val.uniteLegale.dateCreationUniteLegale}</th>
+                    //     <th scope="row">{val.uniteLegale.activitePrincipaleUniteLegale}</th>
+                    //     <th scope="row">{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement + ", " + val.adresseEtablissement.complementAdresseEtablissement}</th>
+                    //     <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
+                    //     <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
+                    //     <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
+                    //     <th scope="row"><button onClick={addCompanie} value={val.siret} name={val.uniteLegale.denominationUniteLegale}>Ajouter</button></th>
+                    // </tr>
+                )
+                })}
+
+            </div>
         </>
     )
 }
