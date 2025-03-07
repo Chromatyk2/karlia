@@ -21,9 +21,9 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif", (req, re
                 "name": name,
                 "company_siret": siret,
                 "createdate": create,
-                "type": create,
-                "company_activite_principale_etablissement": create,
-                "numberofemployees": create,
+                "type": type,
+                "company_activite_principale_etablissement": naf,
+                "numberofemployees": effectif,
             }
         },
         {
