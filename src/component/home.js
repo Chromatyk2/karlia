@@ -98,7 +98,7 @@ function HomePage(props) {
                             </div>
                             <div style={{display: "flex", gap: "25px"}}>
                                 <div style={{width: "400px", borderRight: "3px solid gray", lineHeight: "15px"}}>
-                                    <p><span style={{color: "gray"}}>SIRET :</span> {val.siret}</p>
+                                    <p><span style={{color: "#b9b9b9"}}>SIRET :</span> {val.siret}</p>
                                     <p><span
                                         style={{color: "#b9b9b9"}}>Dénomination légale :</span> {val.uniteLegale.denominationUniteLegale}
                                     </p>
