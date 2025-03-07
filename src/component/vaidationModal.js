@@ -7,7 +7,7 @@ function ValidationModal(props) {
     const addCompanie = (e) => {
         const name = props.companie.uniteLegale.denominationUniteLegale;
         const siret = props.companie.siret;
-        const create = moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('DD/MM/YYYY HH:mm:ss');
+        const create = moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('MM-DD-YYYY hh:mm');
         const type = props.companie.uniteLegale.categorieEntreprise;
         const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale;
         const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale;
