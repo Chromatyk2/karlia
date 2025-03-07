@@ -5,6 +5,24 @@ import Axios from "axios";
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            background: '#325269'
+        },
+    };
+    function openModal() {
+        setIsOpen(true);
+    }
+    function closeModal() {
+        setIsOpen(false);
+    }
     useEffect(() => {
         Axios.get(
             '/api/getCompaniesHubspot',
@@ -126,13 +144,25 @@ function HomePage(props) {
 
                                     </div>
                                 </div>
-                                <button className={"buttonToSearchCompanies"} onClick={addCompanie} value={val.siret}
+                                <button style={{position: "absolute", right: "20px", bottom: "20px"}} className={"buttonToSearchCompanies"} onClick={openModal} value={val.siret}
                                         name={val.uniteLegale.denominationUniteLegale}>Ajouter
                                 </button>
                             </div>
                         )
                     })}
             </div>
+
+            <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
+                   contentLabel="Example Modal">
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
+                    <p style={{color: "white"}}>Valider l'ajout ?</p>
+                    <button style={{color: "white", border: "none", background: "none"}}
+                            onClick={closeModal}>X
+                    </button>
+                </div>
+                <div className={"streamsModalContainer"}>
+                    <StreamsModal donations={donations} charityStreamers={charityStreamers} change={closeModal} onStream={onStream} offStream={offStream} token={token}/>
+                </div>
         </>
     )
 }
