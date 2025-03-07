@@ -61,7 +61,8 @@ input{
   background: rgb(254, 254, 254);
   font-size: 15px;
   border: 2px solid #575656;
-}.buttonToSearchCompanies:hover{
+}
+.buttonToSearchCompanies:hover{
   color: rgb(254, 254, 254);
   background: #575656;
   cursor: pointer;

@@ -88,16 +88,16 @@ function HomePage(props) {
     console.log(selectedCompanie)
     return (
         <>
-            <div style={{margin: "30px",width: "500px",display: "block",marginLeft: "auto",marginRight: "auto"}}>
-                <input style={{marginBottom: "15px", width:"100%"}} placeholder={"SIRET"}
-                       id={"searchSiretField"} type={"text"}/>
-                <div style={{display: "flex", justifyContent: "center", gap: "20px", flexFlow: "row"}}>
+            <div style={{width: "100%",display: "flex",justifyContent: "center",margin: "20px",alignItems: "center"}}>
+                <div style={{width: "450px",display: "flex", justifyContent: "center",flexWrap: "wrap",gap: "10px"}}>
+                    <input style={{margin: "0", width: "430px"}} placeholder={"SIRET"}
+                           id={"searchSiretField"} type={"text"}/>
                     <input style={{margin: 0}} placeholder={"Nom de l'entreprise"}
                            id={"searchNameField"} type={"text"}/>
                     <input style={{margin: 0}} placeholder={"Code Postal"}
                            id={"searchCpField"} type={"text"}/>
                 </div>
-                <button className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
+                <button style={{height: "40px"}} className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
             <div className={"allCompaniesContainer"}>
                 {factures &&
@@ -124,7 +124,7 @@ function HomePage(props) {
                                         <p>Adresse de l'entreprise</p>
                                     </div>
                                     <div style={{display: "flex", gap: "25px"}}>
-                                        <div style={{width: "400px", borderRight: "3px solid gray", lineHeight: "15px"}}>
+                                        <div style={{width: "350px", borderRight: "3px solid gray", lineHeight: "15px"}}>
                                             <p><span style={{color: "#b9b9b9"}}>SIRET :</span> {val.siret}</p>
                                             <p><span
                                                 style={{color: "#b9b9b9"}}>Dénomination légale :</span> {val.uniteLegale.denominationUniteLegale}
@@ -142,7 +142,7 @@ function HomePage(props) {
                                                 style={{color: "#b9b9b9"}}>Effectif :</span> {val.uniteLegale.trancheEffectifsUniteLegale}
                                             </p>
                                         </div>
-                                        <div style={{width: "300px", lineHeight: "15px"}}>
+                                        <div style={{width: "250px", lineHeight: "15px"}}>
                                             <p>{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement}</p>
                                             <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
                                             <p>{val.adresseEtablissement.codePostalEtablissement}</p>
