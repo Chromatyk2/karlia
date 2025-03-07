@@ -7,6 +7,7 @@ import ValidationModal from "./vaidationModal";
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
+    const [selectedCompanie,setSelectedCompanie] = useState(null);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const customStyles = {
         content: {
@@ -18,7 +19,9 @@ function HomePage(props) {
             transform: 'translate(-50%, -50%)',
         },
     };
-    function openModal() {
+    function openModal(e) {
+        const companie = e.target.value;
+        setSelectedCompanie(companie);
         setIsOpen(true);
     }
     function closeModal() {
@@ -146,22 +149,24 @@ function HomePage(props) {
 
                                         </div>
                                     </div>
-                                    <button style={{position: "absolute", right: "20px", bottom: "20px"}} className={"buttonToSearchCompanies"} onClick={openModal} value={val.siret}
+                                    <button style={{position: "absolute", right: "20px", bottom: "20px"}} className={"buttonToSearchCompanies"} onClick={openModal} value={val}
                                             name={val.uniteLegale.denominationUniteLegale}>Ajouter
                                     </button>
                                 </div>
-                                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
-                                       contentLabel="Example Modal">
-                                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-                                        <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
-                                    </div>
-                                    <div className={"validationModalContainer"}>
-                                        <ValidationModal companie={val} change={closeModal}/>
-                                    </div>
-                                </Modal>
                             </>
                         )
                     })}
+                    {selectedCompanie &&
+                        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
+                               contentLabel="Example Modal">
+                            <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
+                                <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
+                            </div>
+                            <div className={"validationModalContainer"}>
+                                <ValidationModal companie={selectedCompanie} change={closeModal}/>
+                            </div>
+                        </Modal>
+                    }
             </div>
         </>
     )
