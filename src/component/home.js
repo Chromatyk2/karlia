@@ -74,12 +74,12 @@ function HomePage(props) {
                        id={"searchCpField"} type={"text"}/>
             </div>
             <button onClick={searchEntrepriseBySiret}>Chercher</button>
-            <div>
+            <div className={"allCompaniesContainer"}>
                 {factures &&
                     factures.map((val, key) => {
                     return (
-                        <div className={"allCompaniesContainer"}>
-                            <p>{val.uniteLegale.denominationUniteLegale}</p>
+                        <div>
+                            <p style={{fontSize: "30px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <p>{val.siret}</p>
                             <p>{val.uniteLegale.dateCreationUniteLegale}</p>
                             <p>{val.uniteLegale.categorieEntreprise}</p>
