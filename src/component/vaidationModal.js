@@ -1,12 +1,13 @@
 import React,{useState, useEffect} from 'react';
 import Axios from "axios";
+import moment from "moment/moment";
 
 function ValidationModal(props) {
     console.log(props.companie)
     const addCompanie = (e) => {
         const name = props.companie.uniteLegale.denominationUniteLegale;
         const siret = props.companie.siret;
-        const create = props.companie.uniteLegale.dateCreationUniteLegale;
+        const create = moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('DD/MM/YYYY HH:mm:ss');
         const type = props.companie.uniteLegale.categorieEntreprise;
         const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale;
         const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale;
@@ -18,7 +19,7 @@ function ValidationModal(props) {
         Axios.get(
             '/api/createCompanie/'+name+'/'+siret+'/'+create+'/'+type+'/'+naf+'/'+effectif+'/'+adress+'/'+cp+'/'+ville
         ).then(function(response){
-            console.log(response.data);
+            props.change();
         })
 
     }

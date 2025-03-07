@@ -25,6 +25,7 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
                 "company_siret": siret,
                 "type_entreprise": type,
                 "company_activite_principale_etablissement": naf,
+                "company_facility_create_date": create,
                 "numberofemployees": effectif,
                 "address": adress,
                 "zip": zip,
