@@ -4,15 +4,17 @@ import Axios from "axios";
 function ValidationModal(props) {
     console.log(props.companie)
     const addCompanie = (e) => {
-        const name = e.target.name;
-        const siret = e.target.siret;
-        console.log(name);
-        console.log(siret);
-        // Axios.get(
-        //     '/api/createCompanie/'+name+'/'+siret
-        // ).then(function(response){
-        //     console.log(response.data);
-        // })
+        const name = props.companie.uniteLegale.denominationUniteLegale;
+        const siret = props.companie.siret;
+        const create = props.companie.uniteLegale.dateCreationUniteLegale;
+        const type = props.companie.uniteLegale.categorieEntreprise;
+        const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale;
+        const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale;
+        Axios.get(
+            '/api/createCompanie/'+name+'/'+siret+'/'+create+'/'+type+'/'+naf+'/'+effectif
+        ).then(function(response){
+            console.log(response.data);
+        })
 
     }
     ;function closeModal() {
@@ -20,7 +22,7 @@ function ValidationModal(props) {
     }
     return (
         <>
-            <button onClick={addCompanie} siret={props.companie.siret} name={props.companie.uniteLegale.denominationUniteLegale} className={"validationButton"}>Oui</button>
+            <button onClick={addCompanie} name={props.companie.uniteLegale.denominationUniteLegale} className={"validationButton"}>Oui</button>
             <button onClick={closeModal} className={"refuseButton"}>Non</button>
         </>
     );
