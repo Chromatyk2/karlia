@@ -85,6 +85,7 @@ function HomePage(props) {
         }
 
     };
+    console.log(selectedCompanie)
     return (
         <>
             <div style={{margin: "30px",width: "500px",display: "block",marginLeft: "auto",marginRight: "auto"}}>
