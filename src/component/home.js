@@ -78,12 +78,9 @@ function HomePage(props) {
                 {factures &&
                     factures.map((val, key) => {
                     return (
-                        <div>
+                        <div style={{display: "flex"}}>
+                            <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <div>
-                                <p style={{
-                                    fontSize: "20px",
-                                    fontWeight: "bolder"
-                                }}>{val.uniteLegale.denominationUniteLegale}</p>
                                 <p>Informations juridiques</p>
                                 <p>SIRET : {val.siret}</p>
                                 <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
@@ -96,21 +93,8 @@ function HomePage(props) {
                                 <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
                             </div>
                         </div>
-                        // <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
-                        //     <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
-                        //     <th scope="row">{val.siren}</th>
-                        //     <th scope="row">{val.siret}</th>
-                        //     <th scope="row">{val.uniteLegale.dateCreationUniteLegale}</th>
-                        //     <th scope="row">{val.uniteLegale.activitePrincipaleUniteLegale}</th>
-                        //     <th scope="row">{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement + ", " + val.adresseEtablissement.complementAdresseEtablissement}</th>
-                    //     <th scope="row">{val.adresseEtablissement.codePostalEtablissement}</th>
-                    //     <th scope="row">{val.adresseEtablissement.libelleCommuneEtablissement}</th>
-                    //     <th scope="row">{val.uniteLegale.categorieEntreprise}</th>
-                    //     <th scope="row"><button onClick={addCompanie} value={val.siret} name={val.uniteLegale.denominationUniteLegale}>Ajouter</button></th>
-                    // </tr>
-                )
+                    )
                 })}
-
             </div>
         </>
     )
