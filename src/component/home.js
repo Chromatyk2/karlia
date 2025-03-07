@@ -160,7 +160,7 @@ function HomePage(props) {
                         <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                                contentLabel="Example Modal">
                             <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-                                <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
+                                <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {selectedCompanie.uniteLegale.denominationUniteLegale} ?</p>
                             </div>
                             <div className={"validationModalContainer"}>
                                 <ValidationModal companie={selectedCompanie} change={closeModal}/>
