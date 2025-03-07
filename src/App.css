@@ -56,6 +56,16 @@ input{
   justify-content: center;
   gap: 30px;
 }
+.buttonToSearchCompanies{
+  color: #575656;
+  background: rgb(254, 254, 254);
+  font-size: 15px;
+  border: 2px solid #575656;
+}.buttonToSearchCompanies:hover{
+  color: rgb(254, 254, 254);
+  background: #575656;
+  cursor: pointer;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
