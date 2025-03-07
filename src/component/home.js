@@ -126,7 +126,7 @@ function HomePage(props) {
 
                                     </div>
                                 </div>
-                                <button onClick={addCompanie} value={val.siret}
+                                <button className={"buttonToSearchCompanies"} onClick={addCompanie} value={val.siret}
                                         name={val.uniteLegale.denominationUniteLegale}>Ajouter
                                 </button>
                             </div>
