@@ -78,11 +78,11 @@ function HomePage(props) {
                 {factures &&
                     factures.map((val, key) => {
                     return (
-                        <div style={{display: "flex", flexFlow:"column"}}>
+                        <div style={{    display: "flex",flexFlow: "column",background: "white",padding: "20px",borderRadius: "20px"}}>
                             <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
+                            <p>Informations juridiques</p>
                             <div>
-                                <div>
-                                    <p>Informations juridiques</p>
+                                <div style={{width:"500px",borderRight:"3px solid gray"}}>
                                     <p>SIRET : {val.siret}</p>
                                     <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
                                     <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
