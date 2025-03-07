@@ -16,7 +16,6 @@ function HomePage(props) {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            background: '#325269'
         },
     };
     function openModal() {
@@ -160,7 +159,7 @@ function HomePage(props) {
                                         </button>
                                     </div>
                                     <div className={"streamsModalContainer"}>
-                                        <ValidationModal caompanie={val} change={closeModal}/>
+                                        <ValidationModal companie={val} change={closeModal}/>
                                     </div>
                                 </Modal>
                             </>
