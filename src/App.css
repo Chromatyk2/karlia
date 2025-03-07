@@ -73,12 +73,14 @@ input{
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top:20px
 }
 .validationButton{
   width: 80px;
   background-color: #4dc94d;
   border: none;
   color: #fefefe;
+  margin: 0;
 }
 .validationButton:hover{
   background-color: #277b27;
@@ -90,6 +92,7 @@ input{
   background-color: #d62828;
   border: none;
   color: #fefefe;
+  margin: 0;
 }
 .refuseButton:hover{
   background-color: #a51c1c;

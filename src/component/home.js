@@ -154,9 +154,6 @@ function HomePage(props) {
                                        contentLabel="Example Modal">
                                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
                                         <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
-                                        <button style={{color: "white", border: "none", background: "none"}}
-                                                onClick={closeModal}>X
-                                        </button>
                                     </div>
                                     <div className={"validationModalContainer"}>
                                         <ValidationModal companie={val} change={closeModal}/>
