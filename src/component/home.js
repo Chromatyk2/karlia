@@ -21,6 +21,7 @@ function HomePage(props) {
     };
     function openModal(e) {
         const companie = e.target.value;
+        console.log(companie);
         setSelectedCompanie(companie);
         setIsOpen(true);
     }
@@ -85,7 +86,6 @@ function HomePage(props) {
         }
 
     };
-    console.log(factures);
     return (
         <>
             <div style={{margin: "30px",width: "500px",display: "block",marginLeft: "auto",marginRight: "auto"}}>
@@ -150,7 +150,7 @@ function HomePage(props) {
 
                                         </div>
                                     </div>
-                                    <button style={{position: "absolute", right: "20px", bottom: "20px"}} className={"buttonToSearchCompanies"} onClick={openModal} value={val.uniteLegale}
+                                    <button style={{position: "absolute", right: "20px", bottom: "20px"}} className={"buttonToSearchCompanies"} onClick={openModal} value={val}
                                             name={val.uniteLegale.denominationUniteLegale}>Ajouter
                                     </button>
                                 </div>
