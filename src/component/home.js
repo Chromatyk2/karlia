@@ -81,20 +81,22 @@ function HomePage(props) {
                         <div style={{display: "flex"}}>
                             <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <div>
-                                <p>Informations juridiques</p>
-                                <p>SIRET : {val.siret}</p>
-                                <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
-                                <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
-                                <p>Type d'entreprise : {val.uniteLegale.categorieEntreprise}</p>
-                            </div>
-                            <div>
-                                <p>Adresse de l'entreprise</p>
-                                <p>{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement}</p>
-                                <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
+                                <div>
+                                    <p>Informations juridiques</p>
+                                    <p>SIRET : {val.siret}</p>
+                                    <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
+                                    <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
+                                    <p>Type d'entreprise : {val.uniteLegale.categorieEntreprise}</p>
+                                </div>
+                                <div>
+                                    <p>Adresse de l'entreprise</p>
+                                    <p>{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement}</p>
+                                    <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
+                                </div>
                             </div>
                         </div>
                     )
-                })}
+                    })}
             </div>
         </>
     )
