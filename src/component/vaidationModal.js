@@ -20,7 +20,7 @@ function ValidationModal(props) {
     }
     return (
         <>
-            <button siret={props.companie.siret} name={props.companie.uniteLegale.denominationUniteLegale} className={"validationButton"}>Oui</button>
+            <button onClick={addCompanie} siret={props.companie.siret} name={props.companie.uniteLegale.denominationUniteLegale} className={"validationButton"}>Oui</button>
             <button onClick={closeModal} className={"refuseButton"}>Non</button>
         </>
     );
