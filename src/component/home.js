@@ -79,10 +79,10 @@ function HomePage(props) {
                     factures.map((val, key) => {
                     return (
                         <div style={{display: "flex",flexFlow: "column",background: "white",padding: "20px",borderRadius: "20px"}}>
-                            <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
+                            <p style={{margin:"0",fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <p>Informations juridiques</p>
-                            <div style={{display:"flex",gap:"15px"}}>
-                                <div style={{width: "400px", borderRight: "3px solid gray"}}>
+                            <div style={{display:"flex",gap:"25px"}}>
+                                <div style={{width: "400px", borderRight: "3px solid gray", lineHeight:"15px"}}>
                                     <p>SIRET : {val.siret}</p>
                                     <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
                                     <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
@@ -90,7 +90,7 @@ function HomePage(props) {
                                     <p>Code NAF : {val.uniteLegale.activitePrincipaleUniteLegale}</p>
                                     <p>Effectif : {val.uniteLegale.trancheEffectifsUniteLegale}</p>
                                 </div>
-                                <div style={{width: "300px"}}>
+                                <div style={{width: "300px", lineHeight:"15px"}}>
                                     <p>Adresse de l'entreprise</p>
                                     <p>{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement}</p>
                                     <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
