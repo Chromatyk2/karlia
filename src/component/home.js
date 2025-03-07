@@ -153,7 +153,7 @@ function HomePage(props) {
                                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                                        contentLabel="Example Modal">
                                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-                                        <p style={{color: "white"}}>Valider l'ajout ?</p>
+                                        <p style={{color: "white"}}>Valider la création d'une fiche pour {val.uniteLegale.denominationUniteLegale} ?</p>
                                         <button style={{color: "white", border: "none", background: "none"}}
                                                 onClick={closeModal}>X
                                         </button>
