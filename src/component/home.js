@@ -90,14 +90,14 @@ function HomePage(props) {
         <>
             <div style={{width: "100%",display: "flex",justifyContent: "center",margin: "20px",alignItems: "center"}}>
                 <div style={{width: "450px",display: "flex", justifyContent: "center",flexWrap: "wrap",gap: "10px"}}>
-                    <input style={{margin: "0", width: "430px"}} placeholder={"SIRET"}
+                    <input style={{margin: "0", width: "420px"}} placeholder={"SIRET"}
                            id={"searchSiretField"} type={"text"}/>
                     <input style={{margin: 0}} placeholder={"Nom de l'entreprise"}
                            id={"searchNameField"} type={"text"}/>
                     <input style={{margin: 0}} placeholder={"Code Postal"}
                            id={"searchCpField"} type={"text"}/>
                 </div>
-                <button style={{height: "40px"}} className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
+                <button style={{height: "40px", margin:0}} className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
             <div className={"allCompaniesContainer"}>
                 {factures &&
