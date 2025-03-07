@@ -49,6 +49,9 @@ input{
 }
 .allCompaniesContainer{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 @keyframes App-logo-spin {
   from {
