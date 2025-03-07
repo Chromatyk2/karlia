@@ -75,12 +75,16 @@ function HomePage(props) {
             </div>
             <button onClick={searchEntrepriseBySiret}>Chercher</button>
             <div>
-                {factures.map((val, key) => {
+                {factures &&
+                    factures.map((val, key) => {
                     return (
                         <div className={"allCompaniesContainer"}>
                             <p>{val.uniteLegale.denominationUniteLegale}</p>
+                            <p>{val.siret}</p>
+                            <p>{val.uniteLegale.dateCreationUniteLegale}</p>
+                            <p>{val.uniteLegale.categorieEntreprise}</p>
                         </div>
-                    // <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
+                        // <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
                     //     <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
                     //     <th scope="row">{val.siren}</th>
                     //     <th scope="row">{val.siret}</th>
