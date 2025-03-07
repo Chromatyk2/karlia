@@ -81,16 +81,18 @@ function HomePage(props) {
                         <div style={{
                             display: "flex",
                             flexFlow: "column",
-                            background: "white",
+                            background: "#fefefe",
                             padding: "20px",
-                            borderRadius: "20px"
+                            borderRadius: "20px",
+                            fontWeight:"500",
+                            color:"#575656"
                         }}>
                             <p style={{
                                 margin: "0",
                                 fontSize: "20px",
                                 fontWeight: "bolder"
                             }}>{val.uniteLegale.denominationUniteLegale}</p>
-                            <div>
+                            <div style={{display:"flex",justifyContent:"space-around", color:"#b9b9b9"}}>
                                 <p>Informations juridiques</p>
                                 <p>Adresse de l'entreprise</p>
                             </div>
@@ -98,19 +100,19 @@ function HomePage(props) {
                                 <div style={{width: "400px", borderRight: "3px solid gray", lineHeight: "15px"}}>
                                     <p><span style={{color: "gray"}}>SIRET :</span> {val.siret}</p>
                                     <p><span
-                                        style={{color: "gray"}}>Dénomination légale :</span> {val.uniteLegale.denominationUniteLegale}
+                                        style={{color: "#b9b9b9"}}>Dénomination légale :</span> {val.uniteLegale.denominationUniteLegale}
                                     </p>
                                     <p><span
-                                        style={{color: "gray"}}>Date de création :</span> {val.uniteLegale.dateCreationUniteLegale}
+                                        style={{color: "#b9b9b9"}}>Date de création :</span> {val.uniteLegale.dateCreationUniteLegale}
                                     </p>
                                     <p><span
-                                        style={{color: "gray"}}>Type d'entreprise :</span> {val.uniteLegale.categorieEntreprise}
+                                        style={{color: "#b9b9b9"}}>Type d'entreprise :</span> {val.uniteLegale.categorieEntreprise}
                                     </p>
                                     <p><span
-                                        style={{color: "gray"}}>Code NAF :</span> {val.uniteLegale.activitePrincipaleUniteLegale}
+                                        style={{color: "#b9b9b9"}}>Code NAF :</span> {val.uniteLegale.activitePrincipaleUniteLegale}
                                     </p>
                                     <p><span
-                                        style={{color: "gray"}}>Effectif :</span> {val.uniteLegale.trancheEffectifsUniteLegale}
+                                        style={{color: "#b9b9b9"}}>Effectif :</span> {val.uniteLegale.trancheEffectifsUniteLegale}
                                     </p>
                                 </div>
                                 <div style={{width: "300px", lineHeight: "15px"}}>
