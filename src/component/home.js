@@ -87,7 +87,8 @@ function HomePage(props) {
                                 padding: "20px",
                                 borderRadius: "20px",
                                 fontWeight: "500",
-                                color: "#575656"
+                                color: "#575656",
+                                filter: "drop-shadow(2px 4px 6px black)"
                             }}>
                                 <p style={{
                                     margin: "0",
