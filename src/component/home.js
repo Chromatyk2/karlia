@@ -79,10 +79,12 @@ function HomePage(props) {
                     factures.map((val, key) => {
                     return (
                         <div>
-                            <p style={{fontSize: "30px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
-                            <p>{val.siret}</p>
-                            <p>{val.uniteLegale.dateCreationUniteLegale}</p>
-                            <p>{val.uniteLegale.categorieEntreprise}</p>
+                            <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
+                            <p>Informations juridiques</p>
+                            <p>SIRET : {val.siret}</p>
+                            <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
+                            <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
+                            <p>Type d'entreprise : {val.uniteLegale.categorieEntreprise}</p>
                         </div>
                         // <tr style={{backgroundColor: key % 2 ? "aliceblue" : "white"}}>
                     //     <th scope="row">{val.uniteLegale.denominationUniteLegale}</th>
