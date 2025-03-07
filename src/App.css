@@ -40,18 +40,21 @@ button{
   letter-spacing: 1px;
 }
 input{
-  display: block;
-  margin: 20px auto 0px;
-  width: 200px;
+  border-radius: 10px;
   height: 30px;
-  border-radius: 20px;
-  padding: 0 5px 0 5px;
+  margin: 20px auto 0;
+  padding: 0 5px;
+  width: 200px;
+  border: none;
+  background: #ebebeb;
+  color: rgb(87, 86, 86);
+  font-weight: bold;
 }
 .allCompaniesContainer{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
 }
 @keyframes App-logo-spin {
   from {

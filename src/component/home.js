@@ -65,29 +65,31 @@ function HomePage(props) {
     };
     return (
         <>
-            <input style={{marginBottom:"15px"}} placeholder={"SIRET"}
-                   id={"searchSiretField"} type={"text"}/>
-            <div style={{display: "flex", justifyContent: "center", gap: "20px", flexFlow: "row"}}>
-                <input style={{margin:0}} placeholder={"Nom de l'entreprise"}
-                       id={"searchNameField"} type={"text"}/>
-                <input style={{margin:0}} placeholder={"Code Postal"}
-                       id={"searchCpField"} type={"text"}/>
+            <div style={{margin: "30px",width: "500px",display: "block",marginLeft: "auto",marginRight: "auto"}}>
+                <input style={{marginBottom: "15px", width:"100%"}} placeholder={"SIRET"}
+                       id={"searchSiretField"} type={"text"}/>
+                <div style={{display: "flex", justifyContent: "center", gap: "20px", flexFlow: "row"}}>
+                    <input style={{margin: 0, width:"240px"}} placeholder={"Nom de l'entreprise"}
+                           id={"searchNameField"} type={"text"}/>
+                    <input style={{margin: 0, width:"240px"}} placeholder={"Code Postal"}
+                           id={"searchCpField"} type={"text"}/>
+                </div>
+                <button onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
-            <button onClick={searchEntrepriseBySiret}>Chercher</button>
             <div className={"allCompaniesContainer"}>
                 {factures &&
                     factures.map((val, key) => {
-                    return (
-                        <div style={{
-                            display: "flex",
-                            flexFlow: "column",
-                            background: "#fefefe",
-                            padding: "20px",
-                            borderRadius: "20px",
-                            fontWeight:"500",
-                            color:"#575656"
-                        }}>
-                            <p style={{
+                        return (
+                            <div style={{
+                                display: "flex",
+                                flexFlow: "column",
+                                background: "#fefefe",
+                                padding: "20px",
+                                borderRadius: "20px",
+                                fontWeight: "500",
+                                color: "#575656"
+                            }}>
+                                <p style={{
                                 margin: "0",
                                 fontSize: "20px",
                                 fontWeight: "bolder"
