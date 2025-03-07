@@ -78,7 +78,7 @@ function HomePage(props) {
                 {factures &&
                     factures.map((val, key) => {
                     return (
-                        <div style={{display: "flex"}}>
+                        <div style={{display: "flex", flexFlow:"column"}}>
                             <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <div>
                                 <div>
