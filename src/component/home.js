@@ -74,7 +74,7 @@ function HomePage(props) {
                     <input style={{margin: 0, width:"240px"}} placeholder={"Code Postal"}
                            id={"searchCpField"} type={"text"}/>
                 </div>
-                <button className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</buttonstyle>
+                <button className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
             <div className={"allCompaniesContainer"}>
                 {factures &&
