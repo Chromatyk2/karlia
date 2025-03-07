@@ -78,17 +78,17 @@ function HomePage(props) {
                 {factures &&
                     factures.map((val, key) => {
                     return (
-                        <div style={{    display: "flex",flexFlow: "column",background: "white",padding: "20px",borderRadius: "20px"}}>
+                        <div style={{display: "flex",flexFlow: "column",background: "white",padding: "20px",borderRadius: "20px"}}>
                             <p style={{fontSize: "20px",fontWeight: "bolder"}}>{val.uniteLegale.denominationUniteLegale}</p>
                             <p>Informations juridiques</p>
-                            <div>
-                                <div style={{width:"500px",borderRight:"3px solid gray"}}>
+                            <div style={{display:"flex",gap:"15px"}}>
+                                <div style={{width:"400px",borderRight:"3px solid gray"}}>
                                     <p>SIRET : {val.siret}</p>
                                     <p>Dénomination légale : {val.uniteLegale.denominationUniteLegale}</p>
                                     <p>Date de création : {val.uniteLegale.dateCreationUniteLegale}</p>
                                     <p>Type d'entreprise : {val.uniteLegale.categorieEntreprise}</p>
                                 </div>
-                                <div>
+                                <div style={{width:"300px"}}>
                                     <p>Adresse de l'entreprise</p>
                                     <p>{val.adresseEtablissement.numeroVoieEtablissement + " " + val.adresseEtablissement.typeVoieEtablissement + " " + val.adresseEtablissement.libelleVoieEtablissement}</p>
                                     <p>{val.adresseEtablissement.complementAdresseEtablissement}</p>
