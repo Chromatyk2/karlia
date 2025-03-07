@@ -10,8 +10,13 @@ function ValidationModal(props) {
         const type = props.companie.uniteLegale.categorieEntreprise;
         const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale;
         const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale;
+        const adress = props.companie.adresseEtablissement.numeroVoieEtablissement + " " + props.companie.adresseEtablissement.typeVoieEtablissement + " " + props.companie.adresseEtablissement.libelleVoieEtablissement+ " " + props.companie.adresseEtablissement.complementAdresseEtablissement;
+        const cp = props.companie..adresseEtablissement.codePostalEtablissement;
+        const ville = props.companie.adresseEtablissement.libelleCommuneEtablissement;
+
+
         Axios.get(
-            '/api/createCompanie/'+name+'/'+siret+'/'+create+'/'+type+'/'+naf+'/'+effectif
+            '/api/createCompanie/'+name+'/'+siret+'/'+create+'/'+type+'/'+naf+'/'+effectif+'/'+adress+'/'+cp+'/'+ville
         ).then(function(response){
             console.log(response.data);
         })

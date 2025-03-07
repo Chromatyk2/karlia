@@ -6,7 +6,7 @@ const api = express();
 
 const router = Router();
 router.get("/hello", (req, res) => res.send("Hello World!"));
-router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif", (req, res, next)=>{
+router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:cp/:ville", (req, res, next)=>{
 
     const name = req.params.name;
     const siret = req.params.siret;
@@ -14,6 +14,9 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif", (req, re
     const type = req.params.type;
     const naf = req.params.naf;
     const effectif = req.params.effectif;
+    const adress = req.params.effectif;
+    const cp = req.params.effectif;
+    const ville = req.params.effectif;
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
@@ -23,6 +26,9 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif", (req, re
                 "type_entreprise": type,
                 "company_activite_principale_etablissement": naf,
                 "numberofemployees": effectif,
+                "address": adress,
+                "zip": cp,
+                "city": ville,
             }
         },
         {
