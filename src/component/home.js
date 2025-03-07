@@ -7,7 +7,7 @@ import ValidationModal from "./vaidationModal";
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
-    const [selectedCompanie,setSelectedCompanie] = useState({});
+    const [selectedCompanie,setSelectedCompanie] = useState();
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const customStyles = {
         content: {
@@ -85,7 +85,7 @@ function HomePage(props) {
         }
 
     };
-    console.log(selectedCompanie);
+    console.log(factures);
     return (
         <>
             <div style={{margin: "30px",width: "500px",display: "block",marginLeft: "auto",marginRight: "auto"}}>
