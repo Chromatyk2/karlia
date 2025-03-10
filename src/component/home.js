@@ -10,6 +10,7 @@ function HomePage(props) {
     const [myCompanies,setMyCompanies] = useState(null);
     const [selectedCompanie,setSelectedCompanie] = useState();
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [isLoad, setIsLoad] = React.useState(false);
     const customStyles = {
         content: {
             top: '50%',
@@ -46,6 +47,7 @@ function HomePage(props) {
 
     };
     const searchEntrepriseBySiret = (e) => {
+        setIsLoad(true)
         const siret = document.getElementById('searchSiretField').value;
         const name = document.getElementById('searchNameField').value;
         const cp = document.getElementById('searchCpField').value;
@@ -56,6 +58,7 @@ function HomePage(props) {
                 }
             }).then(function(response){
                 setFactures(response.data.etablissements.filter(etablissement => etablissement.siret == siret));
+                setIsLoad(false)
             })
         }else if(name.length > 0 ){
             if(cp.length > 0 ){
@@ -65,6 +68,7 @@ function HomePage(props) {
                     }
                 }).then(function(response){
                     setFactures(response.data.etablissements);
+                    setIsLoad(false)
                 })
             }else{
                 Axios.get('https://api.insee.fr/api-sirene/3.11/siret?q=denominationUniteLegale:"'+name+'"&nombre=1000',{
@@ -73,6 +77,7 @@ function HomePage(props) {
                     }
                 }).then(function(response){
                     setFactures(response.data.etablissements);
+                    setIsLoad(false)
                 })
             }
         }else if (cp.length > 0){
@@ -82,6 +87,7 @@ function HomePage(props) {
                 }
             }).then(function(response){
                 setFactures(response.data.etablissements);
+                setIsLoad(false)
             })
         }
 
@@ -101,7 +107,10 @@ function HomePage(props) {
                 <button style={{height: "40px", margin:0}} className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
             <div className={"allCompaniesContainer"}>
-                {factures &&
+                {isLoad === true ?
+                    <span className="loader"></span>
+                    :
+                    factures &&
                     factures.map((val, key) => {
                         return (
                             <>
@@ -115,15 +124,30 @@ function HomePage(props) {
                                     color: "#575656",
                                     filter: "drop-shadow(2px 4px 6px black)"
                                 }}>
-                                    <div style={{display:"flex", flexFlow:"row", gap:"10px"}}>
+                                    <div style={{display: "flex", flexFlow: "row", gap: "10px"}}>
                                         <p style={{
                                             margin: "0",
                                             fontSize: "20px",
                                             fontWeight: "bolder"
                                         }}>{val.uniteLegale.denominationUniteLegale}</p>
                                         {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ?
-                                            <div style={{color:"red", backgroundColor:"rgba(255,0,0,0.3)", borderRadius:"10px",width: "170px",textAlign: "center",padding: "2px"}}>Fermé - {moment(val.periodesEtablissement[0].dateDebut).utc().format('DD/MM/YYYY')}</div> :
-                                            <div style={{color:"green", backgroundColor:"rgba(0,255,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Ouvert</div>
+                                            <div style={{
+                                                color: "red",
+                                                backgroundColor: "rgba(255,0,0,0.3)",
+                                                borderRadius: "10px",
+                                                width: "170px",
+                                                textAlign: "center",
+                                                padding: "2px"
+                                            }}>Fermé
+                                                - {moment(val.periodesEtablissement[0].dateDebut).utc().format('DD/MM/YYYY')}</div> :
+                                            <div style={{
+                                                color: "green",
+                                                backgroundColor: "rgba(0,255,0,0.3)",
+                                                borderRadius: "10px",
+                                                width: "80px",
+                                                textAlign: "center",
+                                                padding: "2px"
+                                            }}>Ouvert</div>
                                         }
                                     </div>
                                     <div style={{display: "flex", justifyContent: "space-around", color: "#b9b9b9"}}>
@@ -131,7 +155,8 @@ function HomePage(props) {
                                         <p>Adresse de l'entreprise</p>
                                     </div>
                                     <div style={{display: "flex", gap: "25px"}}>
-                                        <div style={{width: "350px", borderRight: "3px solid gray", lineHeight: "15px"}}>
+                                        <div
+                                            style={{width: "350px", borderRight: "3px solid gray", lineHeight: "15px"}}>
                                             <p><span style={{color: "#b9b9b9"}}>SIRET :</span> {val.siret}</p>
                                             <p><span
                                                 style={{color: "#b9b9b9"}}>Dénomination légale :</span> {val.uniteLegale.denominationUniteLegale}
@@ -157,13 +182,15 @@ function HomePage(props) {
 
                                         </div>
                                     </div>
-                                    <button style={{position: "absolute", right: "20px", bottom: "20px"}} className={"buttonToSearchCompanies"} onClick={openModal} value={key} name={val.uniteLegale.denominationUniteLegale}>Ajouter
+                                    <button style={{position: "absolute", right: "20px", bottom: "20px"}}
+                                            className={"buttonToSearchCompanies"} onClick={openModal} value={key}
+                                            name={val.uniteLegale.denominationUniteLegale}>Ajouter
                                     </button>
                                 </div>
                             </>
                         )
                     })}
-                    {selectedCompanie &&
+                {selectedCompanie &&
                         <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                                contentLabel="Example Modal">
                             <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
