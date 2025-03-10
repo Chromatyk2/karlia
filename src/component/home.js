@@ -122,13 +122,15 @@ function HomePage(props) {
                                     borderRadius: "20px",
                                     fontWeight: "500",
                                     color: "#575656",
-                                    filter: "drop-shadow(2px 4px 6px black)"
+                                    filter: "drop-shadow(2px 4px 6px black)",
+                                    maxWidth:"650px"
                                 }}>
                                     <div style={{display: "flex", flexFlow: "row", gap: "10px"}}>
                                         <p style={{
                                             margin: "0",
                                             fontSize: "20px",
-                                            fontWeight: "bolder"
+                                            fontWeight: "bolder",
+                                            maxWidth:"75%"
                                         }}>{val.uniteLegale.denominationUniteLegale}</p>
                                         {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ?
                                             <div style={{
@@ -137,7 +139,8 @@ function HomePage(props) {
                                                 borderRadius: "10px",
                                                 width: "170px",
                                                 textAlign: "center",
-                                                padding: "2px"
+                                                padding: "2px",
+                                                height:"23px"
                                             }}>Fermé
                                                 - {moment(val.periodesEtablissement[0].dateDebut).utc().format('DD/MM/YYYY')}</div> :
                                             <div style={{
@@ -146,7 +149,8 @@ function HomePage(props) {
                                                 borderRadius: "10px",
                                                 width: "80px",
                                                 textAlign: "center",
-                                                padding: "2px"
+                                                padding: "2px",
+                                                height:"23px"
                                             }}>Ouvert</div>
                                         }
                                     </div>
