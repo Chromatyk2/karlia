@@ -4,6 +4,8 @@ import Axios from "axios";
 import Modal from 'react-modal';
 import ValidationModal from "./vaidationModal";
 import moment from "moment";
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
@@ -28,6 +30,9 @@ function HomePage(props) {
     }
     function closeModal() {
         setIsOpen(false);
+    }function closeModalValid() {
+        setIsOpen(false);
+        NotificationManager.success('La fiche a bien été créée', 'Close after 3000ms', 3000);
     }
     useEffect(() => {
         Axios.get(
@@ -92,7 +97,6 @@ function HomePage(props) {
         }
 
     };
-    console.log(selectedCompanie)
     return (
         <>
             <div style={{width: "100%",display: "flex",justifyContent: "center",margin: "20px",alignItems: "center"}}>
@@ -201,11 +205,12 @@ function HomePage(props) {
                                 <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {selectedCompanie.uniteLegale.denominationUniteLegale} ?</p>
                             </div>
                             <div className={"validationModalContainer"}>
-                                <ValidationModal companie={selectedCompanie} change={closeModal}/>
+                                <ValidationModal companie={selectedCompanie} change={closeModalValid}/>
                             </div>
                         </Modal>
                     }
             </div>
+            <NotificationContainer/>
         </>
     )
 }
