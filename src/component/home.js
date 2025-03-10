@@ -119,7 +119,10 @@ function HomePage(props) {
                                         fontSize: "20px",
                                         fontWeight: "bolder"
                                     }}>{val.uniteLegale.denominationUniteLegale}</p>
-                                    {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ? "Fermé" : "Ouvert"}
+                                    {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ?
+                                        <div style={{color:"red", backgroundColor:"rgba(255,0,0,0.3)", borderRadius:"10px"}}>Fermé</div> :
+                                        <div style={{color:"green", backgroundColor:"rgba(0,255,0,0.3)", borderRadius:"10px"}}>Ouvert</div>
+                                    }
                                     <div style={{display: "flex", justifyContent: "space-around", color: "#b9b9b9"}}>
                                         <p>Informations juridiques</p>
                                         <p>Adresse de l'entreprise</p>
