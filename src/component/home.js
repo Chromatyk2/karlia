@@ -32,7 +32,7 @@ function HomePage(props) {
         setIsOpen(false);
     }function closeModalValid() {
         setIsOpen(false);
-        NotificationManager.success('La fiche a bien été créée', 'Close after 3000ms', 3000);
+        NotificationManager.success('La fiche a bien été créée', 'Validation', 3000);
     }
     useEffect(() => {
         Axios.get(
