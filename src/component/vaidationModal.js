@@ -10,7 +10,7 @@ function ValidationModal(props) {
         const create = props.companie.uniteLegale.dateCreationUniteLegalemoment===null ? "Non rensigné" :moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('YYYY-MM-DDT00:00:00.434Z');
         const type = props.companie.uniteLegale.categorieEntreprise===null ? "Non rensigné" :props.companie.uniteLegale.categorieEntreprise;
         const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale===null ? "Non rensigné" :props.companie.uniteLegale.activitePrincipaleUniteLegale;
-        const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale===null ? "Non rensigné" :props.companie.uniteLegale.trancheEffectifsUniteLegale;
+        const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale===null ? 0 :props.companie.uniteLegale.trancheEffectifsUniteLegale;
         const adress = props.companie.adresseEtablissement.numeroVoieEtablissement+ " " + props.companie.adresseEtablissement.typeVoieEtablissement+ " " + props.companie.adresseEtablissement.libelleVoieEtablissement+ " " + props.companie.adresseEtablissement.complementAdresseEtablissement;
         const cp = props.companie.adresseEtablissement.codePostalEtablissement===null ? "Non rensigné" :props.companie.adresseEtablissement.codePostalEtablissement;
         const ville = props.companie.adresseEtablissement.libelleCommuneEtablissement===null ? "Non rensigné" :props.companie.adresseEtablissement.libelleCommuneEtablissement;
