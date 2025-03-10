@@ -3,13 +3,13 @@ import Axios from "axios";
 import moment from "moment/moment";
 
 function ValidationModal(props) {
-    console.log(props.companie)
+    const [isLoad, setIsLoad] = React.useState(false);
     const addCompanie = (e) => {
+        setIsLoad(true)
         const num = props.companie.adresseEtablissement.numeroVoieEtablissement===null ? "" :props.companie.adresseEtablissement.numeroVoieEtablissement;
         const complementAdress = props.companie.adresseEtablissement.complementAdresseEtablissement===null ? "" :props.companie.adresseEtablissement.complementAdresseEtablissement;
         const nameAdress = props.companie.adresseEtablissement.libelleVoieEtablissement===null ? "" :props.companie.adresseEtablissement.libelleVoieEtablissement;
         const nbVoie = props.companie.adresseEtablissement.typeVoieEtablissement===null ? "" :props.companie.adresseEtablissement.typeVoieEtablissement;
-
         const name = props.companie.uniteLegale.denominationUniteLegale===null ? "Non rensigné" : props.companie.uniteLegale.denominationUniteLegale;
         const siret = props.companie.siret===null ? "" :props.companie.siret;
         const create = props.companie.uniteLegale.dateCreationUniteLegalemoment===null ? "Non rensigné" :moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('YYYY-MM-DDT00:00:00.434Z');
@@ -24,6 +24,7 @@ function ValidationModal(props) {
         Axios.get(
             '/api/createCompanie/'+name+'/'+siret+'/'+create+'/'+type+'/'+naf+'/'+effectif+'/'+adress+'/'+cp+'/'+ville
         ).then(function(response){
+            setIsLoad(false)
             props.change();
         })
 
@@ -33,8 +34,16 @@ function ValidationModal(props) {
     }
     return (
         <>
-            <button onClick={addCompanie} name={props.companie.uniteLegale.denominationUniteLegale} className={"validationButton"}>Oui</button>
-            <button onClick={closeModal} className={"refuseButton"}>Non</button>
+        {isLoad === true ?
+            <span className="loader"></span>
+            :
+            <>
+                <button onClick={addCompanie} name={props.companie.uniteLegale.denominationUniteLegale}
+                        className={"validationButton"}>Oui
+                </button>
+                <button onClick={closeModal} className={"refuseButton"}>Non</button>
+            </>
+        }
         </>
     );
 }
