@@ -5,15 +5,15 @@ import moment from "moment/moment";
 function ValidationModal(props) {
     console.log(props.companie)
     const addCompanie = (e) => {
-        const name = props.companie.uniteLegale.denominationUniteLegale===null ? " " : props.companie.uniteLegale.denominationUniteLegale;
-        const siret = props.companie.siret===null ? " " :props.companie.siret;
-        const create = props.companie.uniteLegale.dateCreationUniteLegalemoment===null ? " " :moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('YYYY-MM-DDT00:00:00.434Z');
-        const type = props.companie.uniteLegale.categorieEntreprise===null ? " " :props.companie.uniteLegale.categorieEntreprise;
-        const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale===null ? " " :props.companie.uniteLegale.activitePrincipaleUniteLegale;
-        const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale===null ? " " :props.companie.uniteLegale.trancheEffectifsUniteLegale;
-        const adress = props.companie.adresseEtablissement.numeroVoieEtablissement===null ? " " : props.companie.adresseEtablissement.numeroVoieEtablissement+ " " + props.companie.adresseEtablissement.typeVoieEtablissement===null ? " " : props.companie.adresseEtablissement.numeroVoieEtablissement+ " " + props.companie.adresseEtablissement.libelleVoieEtablissement===null ? " " :props.companie.adresseEtablissement.numeroVoieEtablissement+ " " + props.companie.adresseEtablissement.complementAdresseEtablissement===null ? " " :props.companie.adresseEtablissement.numeroVoieEtablissement;
-        const cp = props.companie.adresseEtablissement.codePostalEtablissement===null ? " " :props.companie.adresseEtablissement.codePostalEtablissement;
-        const ville = props.companie.adresseEtablissement.libelleCommuneEtablissement===null ? " " :props.companie.adresseEtablissement.libelleCommuneEtablissement;
+        const name = props.companie.uniteLegale.denominationUniteLegale===null ? "" : props.companie.uniteLegale.denominationUniteLegale;
+        const siret = props.companie.siret===null ? "" :props.companie.siret;
+        const create = props.companie.uniteLegale.dateCreationUniteLegalemoment===null ? "" :moment(props.companie.uniteLegale.dateCreationUniteLegale).utc().format('YYYY-MM-DDT00:00:00.434Z');
+        const type = props.companie.uniteLegale.categorieEntreprise===null ? "" :props.companie.uniteLegale.categorieEntreprise;
+        const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale===null ? "" :props.companie.uniteLegale.activitePrincipaleUniteLegale;
+        const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale===null ? 0 :props.companie.uniteLegale.trancheEffectifsUniteLegale;
+        const adress = props.companie.adresseEtablissement.numeroVoieEtablissement===null ? "" : props.companie.adresseEtablissement.numeroVoieEtablissement+ "" + props.companie.adresseEtablissement.typeVoieEtablissement===null ? "" : props.companie.adresseEtablissement.typeVoieEtablissement+ "" + props.companie.adresseEtablissement.libelleVoieEtablissement===null ? "" :props.companie.adresseEtablissement.libelleVoieEtablissementt+ "" + props.companie.adresseEtablissement.complementAdresseEtablissement===null ? "" :props.companie.adresseEtablissement.complementAdresseEtablissement;
+        const cp = props.companie.adresseEtablissement.codePostalEtablissement===null ? "" :props.companie.adresseEtablissement.codePostalEtablissement;
+        const ville = props.companie.adresseEtablissement.libelleCommuneEtablissement===null ? "" :props.companie.adresseEtablissement.libelleCommuneEtablissement;
 
 
         Axios.get(
