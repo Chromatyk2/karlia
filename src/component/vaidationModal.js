@@ -11,7 +11,7 @@ function ValidationModal(props) {
         const type = props.companie.uniteLegale.categorieEntreprise===null ? "Non rensigné" :props.companie.uniteLegale.categorieEntreprise;
         const naf = props.companie.uniteLegale.activitePrincipaleUniteLegale===null ? "Non rensigné" :props.companie.uniteLegale.activitePrincipaleUniteLegale;
         const effectif = props.companie.uniteLegale.trancheEffectifsUniteLegale===null ? "Non rensigné" :props.companie.uniteLegale.trancheEffectifsUniteLegale;
-        const adress = props.companie.adresseEtablissement.numeroVoieEtablissement+ " " + props.companie.adresseEtablissement.typeVoieEtablissement+ " " + props.companie.adresseEtablissement.libelleVoieEtablissementt+ " " + props.companie.adresseEtablissement.complementAdresseEtablissement;
+        const adress = props.companie.adresseEtablissement.numeroVoieEtablissement+ " " + props.companie.adresseEtablissement.typeVoieEtablissement+ " " + props.companie.adresseEtablissement.libelleVoieEtablissement+ " " + props.companie.adresseEtablissement.complementAdresseEtablissement;
         const cp = props.companie.adresseEtablissement.codePostalEtablissement===null ? "Non rensigné" :props.companie.adresseEtablissement.codePostalEtablissement;
         const ville = props.companie.adresseEtablissement.libelleCommuneEtablissement===null ? "Non rensigné" :props.companie.adresseEtablissement.libelleCommuneEtablissement;
 
