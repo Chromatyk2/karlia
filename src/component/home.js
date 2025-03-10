@@ -3,6 +3,7 @@ import '../App.css'
 import Axios from "axios";
 import Modal from 'react-modal';
 import ValidationModal from "./vaidationModal";
+import moment from "moment";
 
 function HomePage(props) {
     const [factures,setFactures] = useState(null);
@@ -114,15 +115,17 @@ function HomePage(props) {
                                     color: "#575656",
                                     filter: "drop-shadow(2px 4px 6px black)"
                                 }}>
-                                    <p style={{
-                                        margin: "0",
-                                        fontSize: "20px",
-                                        fontWeight: "bolder"
-                                    }}>{val.uniteLegale.denominationUniteLegale}</p>
-                                    {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ?
-                                        <div style={{color:"red", backgroundColor:"rgba(255,0,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Fermé</div> :
-                                        <div style={{color:"green", backgroundColor:"rgba(0,255,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Ouvert</div>
-                                    }
+                                    <div style={{display:"flex", flexFlow:"row", gap:"10px"}}>
+                                        <p style={{
+                                            margin: "0",
+                                            fontSize: "20px",
+                                            fontWeight: "bolder"
+                                        }}>{val.uniteLegale.denominationUniteLegale}</p>
+                                        {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ?
+                                            <div style={{color:"red", backgroundColor:"rgba(255,0,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Fermé - {moment(val.periodesEtablissement[0].dateDebut).utc().format('DD-MM-YYYY')}</div> :
+                                            <div style={{color:"green", backgroundColor:"rgba(0,255,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Ouvert</div>
+                                        }
+                                    </div>
                                     <div style={{display: "flex", justifyContent: "space-around", color: "#b9b9b9"}}>
                                         <p>Informations juridiques</p>
                                         <p>Adresse de l'entreprise</p>
