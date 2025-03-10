@@ -122,7 +122,7 @@ function HomePage(props) {
                                             fontWeight: "bolder"
                                         }}>{val.uniteLegale.denominationUniteLegale}</p>
                                         {val.periodesEtablissement[0].etatAdministratifEtablissement == 'F' ?
-                                            <div style={{color:"red", backgroundColor:"rgba(255,0,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Fermé - {moment(val.periodesEtablissement[0].dateDebut).utc().format('DD-MM-YYYY')}</div> :
+                                            <div style={{color:"red", backgroundColor:"rgba(255,0,0,0.3)", borderRadius:"10px",width: "170px",textAlign: "center",padding: "2px"}}>Fermé - {moment(val.periodesEtablissement[0].dateDebut).utc().format('DD/MM/YYYY')}</div> :
                                             <div style={{color:"green", backgroundColor:"rgba(0,255,0,0.3)", borderRadius:"10px",width: "80px",textAlign: "center",padding: "2px"}}>Ouvert</div>
                                         }
                                     </div>
