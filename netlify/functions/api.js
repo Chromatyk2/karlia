@@ -34,7 +34,7 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
         },
         {
             headers: {
-                Authorization: `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`
+                Authorization: `Bearer`
             }
         }
     ).then(response => res.json(response.data))
@@ -44,7 +44,7 @@ router.get("/getCompaniesHubspot", (req, res, next)=>{
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
-                Authorization: `Bearer pat-na1-2ae0381d-ef96-41d8-8e60-81da0ac163a0`
+                Authorization: `Bearer`
             },
         }
     ).then(response => res.json(response.data))

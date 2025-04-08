@@ -13,6 +13,7 @@ function HomePage(props) {
     const [selectedCompanie,setSelectedCompanie] = useState();
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [isLoad, setIsLoad] = React.useState(false);
+    const [allFiches, setAllFiches] = React.useState([]);
     const customStyles = {
         content: {
             top: '50%',
@@ -38,7 +39,7 @@ function HomePage(props) {
         Axios.get(
             '/api/getCompaniesHubspot',
         ).then(function(response){
-            console.log(response.data);
+            setAllFiches(response.data.data)
         })
     }, []);
     const addCompanie = (e) => {
@@ -99,6 +100,11 @@ function HomePage(props) {
     };
     return (
         <>
+            <select>
+                {
+
+                }
+            </select>
             <div style={{width: "100%",display: "flex",justifyContent: "center",margin: "20px",alignItems: "center"}}>
                 <div style={{width: "450px",display: "flex", justifyContent: "center",flexWrap: "wrap",gap: "10px"}}>
                     <input style={{margin: "0", width: "420px"}} placeholder={"SIRET"}
