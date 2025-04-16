@@ -34,7 +34,7 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
         },
         {
             headers: {
-                Authorization: `Bearer`
+                Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`
             }
         }
     ).then(response => res.json(response.data))
@@ -44,7 +44,7 @@ router.get("/getCompaniesHubspot", (req, res, next)=>{
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
-                Authorization: `Bearer`
+                Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`
             },
         }
     ).then(response => res.json(response.data))
