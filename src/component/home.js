@@ -8,7 +8,6 @@ import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 function HomePage(props) {
-    console.log(process.env.REACT_APP_CLIENT_SECRET);
     const [factures,setFactures] = useState(null);
     const [myCompanies,setMyCompanies] = useState(null);
     const [selectedCompanie,setSelectedCompanie] = useState();
