@@ -17,6 +17,7 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
     const adress = req.params.adress;
     const zip = req.params.zip;
     const ville = req.params.ville;
+    const secret = process.env.REACT_APP_CLIENT_SECRET;
     Axios.post(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
@@ -34,17 +35,18 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
         },
         {
             headers: {
-                Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`
+                Authorization: 'Bearer '+secret
             }
         }
     ).then(response => res.json(response.data))
 });
 router.get("/getCompaniesHubspot", (req, res, next)=>{
+    const secret = process.env.REACT_APP_CLIENT_SECRET;
     Axios.get(
         'https://api.hubapi.com/crm/v3/objects/companies',
         {
             headers: {
-                Authorization: `Bearer ${process.env.REACT_APP_CLIENT_SECRET}`
+                Authorization: 'Bearer '+secret
             },
         }
     ).then(response => res.json(response.data))
