@@ -34,6 +34,8 @@ function HomePage(props) {
     }function closeModalValid() {
         setIsOpen(false);
         NotificationManager.success('La fiche a bien été créée', 'Validation', 3000);
+    }function closeModalCancel() {
+        setIsOpen(false);
     }
     useEffect(() => {
         Axios.get(
@@ -211,7 +213,7 @@ function HomePage(props) {
                                 <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche pour {selectedCompanie.uniteLegale.denominationUniteLegale} ?</p>
                             </div>
                             <div className={"validationModalContainer"}>
-                                <ValidationModal companie={selectedCompanie} change={closeModalValid}/>
+                                <ValidationModal companie={selectedCompanie} change={closeModalValid} no={closeModalCancel}/>
                             </div>
                         </Modal>
                     }

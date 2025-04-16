@@ -30,7 +30,7 @@ function ValidationModal(props) {
 
     }
     ;function closeModal() {
-        props.change();
+        props.no();
     }
     return (
         <>
