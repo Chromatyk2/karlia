@@ -85,7 +85,13 @@ function DeletePage(props) {
                                 fontSize: "20px",
                                 fontWeight: "bolder",
                                 maxWidth: "75%"
-                            }}>{entreprise.name}</p>
+                            }}>{entreprise.properties.name}</p>
+                            <p style={{
+                            margin: "0",
+                            fontSize: "20px",
+                            fontWeight: "bolder",
+                            maxWidth: "75%"
+                        }}>{entreprise.id}</p>
                         </div>
                     </div>
                 }
