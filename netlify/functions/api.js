@@ -5,7 +5,6 @@ import Axios from 'axios';
 const api = express();
 
 const router = Router();
-router.get("/hello", (req, res) => res.send("Hello World!"));
 router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:zip/:ville", (req, res, next)=>{
     console.log(process.env.REACT_APP_CLIENT_SECRET);
     const name = req.params.name;
@@ -43,7 +42,7 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
 router.get("/getCompaniesHubspot", (req, res, next)=>{
     const secret = process.env.REACT_APP_CLIENT_SECRET;
     Axios.get(
-        'https://api.hubapi.com/crm/v3/objects/companies',
+        'https://api.hubapi.com/crm/v3/objects/companies/36627251726',
         {
             headers: {
                 Authorization: 'Bearer '+secret
