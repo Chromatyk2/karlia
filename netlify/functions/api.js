@@ -6,7 +6,6 @@ const api = express();
 
 const router = Router();
 router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:zip/:ville", (req, res, next)=>{
-    console.log(process.env.REACT_APP_CLIENT_SECRET);
     const name = req.params.name;
     const siret = req.params.siret;
     const create = req.params.create;
@@ -39,10 +38,11 @@ router.get("/createCompanie/:name/:siret/:create/:type/:naf/:effectif/:adress/:z
         }
     ).then(response => res.json(response.data))
 });
-router.get("/getCompaniesHubspot", (req, res, next)=>{
+router.get("/getCompaniesHubspot/:idEntreprise", (req, res, next)=>{
     const secret = process.env.REACT_APP_CLIENT_SECRET;
+    const idEntreprise = req.params.idEntreprise;
     Axios.get(
-        'https://api.hubapi.com/crm/v3/objects/companies/36627251726',
+        'https://api.hubapi.com/crm/v3/objects/companies/'+idEntreprise,
         {
             headers: {
                 Authorization: 'Bearer '+secret
