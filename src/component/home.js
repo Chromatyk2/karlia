@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {BrowserRouter, Link} from "react-router-dom";
 import '../App.css'
 import Axios from "axios";
 import Modal from 'react-modal';
@@ -119,6 +120,7 @@ function HomePage(props) {
                 <button style={{height: "40px", margin:0}} className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
             <div className={"allCompaniesContainer"}>
+                <Link to="/delete">Accueil</Link>
                 {isLoad === true ?
                     <span className="loader"></span>
                     :
