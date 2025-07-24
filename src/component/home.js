@@ -120,7 +120,6 @@ function HomePage(props) {
                 <button style={{height: "40px", margin:0}} className={"buttonToSearchCompanies"} onClick={searchEntrepriseBySiret}>Chercher</button>
             </div>
             <div className={"allCompaniesContainer"}>
-                <Link to="/delete">Accueil</Link>
                 {isLoad === true ?
                     <span className="loader"></span>
                     :
