@@ -42,7 +42,7 @@ router.get("/getCompaniesHubspot/:idEntreprise", (req, res, next)=>{
     const secret = process.env.REACT_APP_CLIENT_SECRET;
     const idEntreprise = req.params.idEntreprise;
     Axios.get(
-        'https://api.hubapi.com/crm/v3/objects/companies/'+idEntreprise+"?properties=company_siret,address,zip,city",
+        'https://api.hubapi.com/crm/v3/objects/companies/'+idEntreprise+"?properties=company_siret,address,zip,city,name",
         {
             headers: {
                 Authorization: 'Bearer '+secret

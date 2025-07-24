@@ -68,32 +68,47 @@ function DeletePage(props) {
                     <span className="loader"></span>
                     :
                     entreprise &&
-                    <div style={{
-                        display: "flex",
-                        flexFlow: "column",
-                        background: "#fefefe",
-                        padding: "20px",
-                        borderRadius: "20px",
-                        fontWeight: "500",
-                        color: "#575656",
-                        filter: "drop-shadow(2px 4px 6px black)",
-                        maxWidth: "650px"
-                    }}>
-                        <div style={{display: "flex", flexFlow: "row", gap: "10px"}}>
-                            <p style={{
-                                margin: "0",
-                                fontSize: "20px",
-                                fontWeight: "bolder",
-                                maxWidth: "75%"
-                            }}>{entreprise.properties.name}</p>
-                            <p style={{
-                            margin: "0",
-                            fontSize: "20px",
-                            fontWeight: "bolder",
-                            maxWidth: "75%"
-                        }}>{entreprise.id}</p>
+                    <>
+                        <div style={{
+                            display: "flex",
+                            flexFlow: "column",
+                            background: "#fefefe",
+                            padding: "20px",
+                            borderRadius: "20px",
+                            fontWeight: "500",
+                            color: "#575656",
+                            filter: "drop-shadow(2px 4px 6px black)",
+                            maxWidth: "650px"
+                        }}>
+                            <div style={{display: "flex", flexFlow: "row", gap: "10px"}}>
+                                <p style={{
+                                    margin: "0",
+                                    fontSize: "20px",
+                                    fontWeight: "bolder",
+                                    maxWidth: "75%"
+                                }}>{entreprise.properties.name}</p>
+                                <p style={{
+                                    margin: "0",
+                                    fontSize: "20px",
+                                    fontWeight: "bolder",
+                                    maxWidth: "75%"
+                                }}>{entreprise.id}</p>
+                            </div>
                         </div>
-                    </div>
+                        <div
+                            style={{width: "350px", borderRight: "3px solid gray", lineHeight: "15px"}}>
+                            <p><span style={{color: "#b9b9b9"}}>SIRET :</span> {entreprise.properties.company_siret}</p>
+                            <p><span
+                                style={{color: "#b9b9b9"}}>Dénomination légale :</span> {entreprise.properties.address}
+                            </p>
+                            <p><span
+                                style={{color: "#b9b9b9"}}>Date de création :</span> {entreprise.properties.zip}
+                            </p>
+                            <p><span
+                                style={{color: "#b9b9b9"}}>Type d'entreprise :</span> {entreprise.properties.city}
+                            </p>
+                        </div>
+                    </>
                 }
                 {selectedCompanie &&
                     <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
