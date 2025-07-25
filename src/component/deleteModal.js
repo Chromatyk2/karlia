@@ -10,7 +10,7 @@ function DeleteModal(props) {
     const deleteEntreprise = (e) => {
         props.deals.map((val, key) => {
             Axios.get(
-                '/api/deleteDeals/' + val.id
+                '/api/deleteDeal/' + val.id
             )
         })
         props.contacts.map((val, key) => {

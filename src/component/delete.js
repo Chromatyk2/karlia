@@ -169,7 +169,7 @@ function DeletePage(props) {
                                                         margin: "0",
                                                         fontSize: "20px",
                                                         maxWidth: "75%"
-                                                    }}>{val.firstname+" "+val.properties.lastname}</p>
+                                                    }}>{val.properties.firstname+" "+val.properties.lastname}</p>
                                                     <p style={{
                                                         margin: "0",
                                                         fontWeight: "bolder",
