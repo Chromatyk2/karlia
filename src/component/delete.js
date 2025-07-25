@@ -40,9 +40,16 @@ function DeletePage(props) {
             Axios.get(
                 '/api/getCompaniesHubspot/'+idEntreprise
             ).then(function(response){
-                console.log(response.data);
                 setEntreprise(response.data);
-                setIsLoad(false)
+                // setIsLoad(false)
+                response.data.associations.contacts.results.map((val, key) => {
+                    Axios.get(
+                        '/api/getContactsByCompany/' + val.id
+                    ).then(function (response) {
+                        console.log(response.data)
+                        // setIsLoad(false)
+                    })
+                })
             })
         }
     };
