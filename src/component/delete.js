@@ -13,6 +13,7 @@ function DeletePage(props) {
     const [isLoad, setIsLoad] = React.useState(false);
     const [entreprise, setEntreprise] = React.useState(null);
     const [contacts, setContacts] = useState([]);
+    const [deals, setDeals] = useState([]);
     const customStyles = {
         content: {
             top: '50%',
@@ -48,13 +49,20 @@ function DeletePage(props) {
                         '/api/getContactsByCompany/' + val.id
                     ).then(function (response) {
                         setContacts(contacts => [...contacts,response.data.properties]);
-                        setIsLoad(false)
+                    })
+                })
+                response.data.associations.deals.results.map((val, key) => {
+                    Axios.get(
+                        '/api/getDealsByCompany/' + val.id
+                    ).then(function (response) {
+                        setDeals(contacts => [...deals,response.data.properties]);
                     })
                 })
             })
         }
     };
     console.log(contacts)
+    console.log(deals)
     return (
         <>
             <div style={{

@@ -62,6 +62,19 @@ router.get("/getContactsByCompany/:idContact", (req, res, next)=>{
         }
     ).then(response => res.json(response.data))
 });
+
+router.get("/getDealsByCompany/:idDeals", (req, res, next)=>{
+    const secret = process.env.REACT_APP_CLIENT_SECRET;
+    const idDeals = req.params.idDeals;
+    Axios.get(
+        'https://api.hubapi.com/crm/v3/objects/deals/'+idDeals,
+        {
+            headers: {
+                Authorization: 'Bearer '+secret
+            },
+        }
+    ).then(response => res.json(response.data))
+});
 api.use("/api/", router);
 
 export const handler = serverless(api);
