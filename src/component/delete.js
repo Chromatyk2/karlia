@@ -123,90 +123,104 @@ function DeletePage(props) {
                         </div>
                     </>
                 }
-                {isLoad === true ?
-                    <span className="loader"></span>
-                    :
-                    contacts.length > 0 &&
-                    <>
-                        <div style={{
-                            display: "flex",
-                            flexFlow: "column",
-                            background: "#fefefe",
-                            padding: "20px",
-                            borderRadius: "20px",
-                            fontWeight: "500",
-                            color: "#575656",
-                            filter: "drop-shadow(2px 4px 6px black)",
-                            maxWidth: "650px"
-                        }}>
-                            {
-                                contacts.map((val, key) => {
-                                    return (
-                                        <>
-                                            <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
-                                                <p style={{
-                                                    margin: "0",
-                                                    fontSize: "20px",
-                                                    fontWeight: "bolder",
-                                                    maxWidth: "75%"
-                                                }}>{val.firstname+" "+val.lastname}</p>
-                                                <p style={{
-                                                    margin: "0",
-                                                    fontWeight: "bolder",
-                                                    maxWidth: "75%",
-                                                    color: "rgb(185, 185, 185)",
-                                                    fontSize: "15px"
-                                                }}>{val.email}</p>
-                                            </div>
-                                        </>
-                                    )
-                                })
-                            }
-                        </div>
-                    </>
-                }
-                {isLoad === true ?
-                    <span className="loader"></span>
-                    :
-                    deals.length > 0 &&
-                    <>
-                        <div style={{
-                            display: "flex",
-                            flexFlow: "column",
-                            background: "#fefefe",
-                            padding: "20px",
-                            borderRadius: "20px",
-                            fontWeight: "500",
-                            color: "#575656",
-                            filter: "drop-shadow(2px 4px 6px black)",
-                            maxWidth: "650px"
-                        }}>
-                            {
-                                deals.map((val, key) => {
-                                    return (
-                                        <>
-                                            <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
-                                                <p style={{
-                                                    margin: "0",
-                                                    fontSize: "20px",
-                                                    fontWeight: "bolder",
-                                                    maxWidth: "75%"
-                                                }}>{val.dealname}</p>
-                                                <p style={{
-                                                    margin: "0",
-                                                    fontWeight: "bolder",
-                                                    maxWidth: "75%",
-                                                    color: "rgb(185, 185, 185)",
-                                                    fontSize: "15px"
-                                                }}>{val.createdate}</p>
-                                            </div>
-                                        </>
-                                    )
-                                })
-                            }
-                        </div>
-                    </>
-                }
+                <div style={{display:"flex",flexFlow:"row"}}>
+                    {isLoad === true ?
+                        <span className="loader"></span>
+                        :
+                        contacts.length > 0 &&
+                        <>
+                            <div style={{
+                                display: "flex",
+                                flexFlow: "column",
+                                background: "#fefefe",
+                                padding: "20px",
+                                borderRadius: "20px",
+                                fontWeight: "500",
+                                color: "#575656",
+                                filter: "drop-shadow(2px 4px 6px black)",
+                                maxWidth: "650px"
+                            }}>
+                                <p style={{
+                                    margin: "0",
+                                    fontSize: "20px",
+                                    fontWeight: "bolder",
+                                    maxWidth: "75%"
+                                }}>Contacts</p>
+                                {
+                                    contacts.map((val, key) => {
+                                        return (
+                                            <>
+                                                <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
+                                                    <p style={{
+                                                        margin: "0",
+                                                        fontSize: "20px",
+                                                        fontWeight: "bolder",
+                                                        maxWidth: "75%"
+                                                    }}>{val.firstname+" "+val.lastname}</p>
+                                                    <p style={{
+                                                        margin: "0",
+                                                        fontWeight: "bolder",
+                                                        maxWidth: "75%",
+                                                        color: "rgb(185, 185, 185)",
+                                                        fontSize: "15px"
+                                                    }}>{val.email}</p>
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </>
+                    }
+                    {isLoad === true ?
+                        <span className="loader"></span>
+                        :
+                        deals.length > 0 &&
+                        <>
+                            <div style={{
+                                display: "flex",
+                                flexFlow: "column",
+                                background: "#fefefe",
+                                padding: "20px",
+                                borderRadius: "20px",
+                                fontWeight: "500",
+                                color: "#575656",
+                                filter: "drop-shadow(2px 4px 6px black)",
+                                maxWidth: "650px"
+                            }}>
+                                <p style={{
+                                    margin: "0",
+                                    fontSize: "20px",
+                                    fontWeight: "bolder",
+                                    maxWidth: "75%"
+                                }}>Transactions</p>
+                                {
+                                    deals.map((val, key) => {
+                                        return (
+                                            <>
+                                                <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
+                                                    <p style={{
+                                                        margin: "0",
+                                                        fontSize: "20px",
+                                                        fontWeight: "bolder",
+                                                        maxWidth: "75%"
+                                                    }}>{val.dealname}</p>
+                                                    <p style={{
+                                                        margin: "0",
+                                                        fontWeight: "bolder",
+                                                        maxWidth: "75%",
+                                                        color: "rgb(185, 185, 185)",
+                                                        fontSize: "15px"
+                                                    }}>{val.createdate}</p>
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </>
+                    }
+                </div>
                 {selectedCompanie &&
                     <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                            contentLabel="Example Modal">
