@@ -121,18 +121,18 @@ function DeletePage(props) {
                                 <p> {entreprise.properties.zip}</p>
                                 <p>{entreprise.properties.city}</p>
                             </div>
+                            <button style={{position: "absolute", right: "20px", bottom: "20px"}}
+                                    className={"buttonToSearchCompanies"} onClick={openModal}
+                                    id={entreprise.id}>Supprimer
+                            </button>
                         </div>
-                        <button style={{position: "absolute", right: "20px", bottom: "20px"}}
-                                className={"buttonToSearchCompanies"} onClick={openModal}
-                                id={entreprise.id}>Supprimer
-                        </button>
                     </>
                 }
                 <div style={{display: "flex", flexFlow: "row", justifyContent: "center", gap: "20px"}}>
                     {isLoad === true ?
                         <span className="loader"></span>
                         :
-                        contacts.length > 0 &&
+                    contacts.length > 0 &&
                         <>
                             <div style={{
                                 display: "flex",
