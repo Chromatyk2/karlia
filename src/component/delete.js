@@ -56,7 +56,6 @@ function DeletePage(props) {
                             }
                         })
                     })
-                })
                 response.data.associations.deals.results.map((val, key) => {
                     Axios.get(
                         '/api/getDealsByCompany/' + val.id
@@ -65,7 +64,7 @@ function DeletePage(props) {
                     })
                 })
             })
-                .finally(setIsLoad(false))
+            .finally(setIsLoad(false))
         }
     };
     return (
