@@ -47,8 +47,9 @@ function DeletePage(props) {
                 // setIsLoad(false)
                 const IDs = new Set(response.data.associations.contacts.results.map((item) => item.id));
                 Array.from(IDs).map((val, key) => {
+                    console.log(val);
                         Axios.get(
-                            '/api/getContactsByCompany/' + val.id
+                            '/api/getContactsByCompany/' + val
                         ).then(function (response) {
                             const x = contacts.filter(item => item.id === response.data.id);
                             if(x.length === 0){
