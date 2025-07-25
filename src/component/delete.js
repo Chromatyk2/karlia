@@ -62,8 +62,6 @@ function DeletePage(props) {
                 .finally(setIsLoad(false))
         }
     };
-    console.log(contacts)
-    console.log(deals)
     return (
         <>
             <div style={{
@@ -97,7 +95,7 @@ function DeletePage(props) {
                             color: "#575656",
                             filter: "drop-shadow(2px 4px 6px black)",
                             maxWidth: "650px",
-                            margin:"auto"
+                            margin: "auto"
                         }}>
                             <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
                                 <p style={{
@@ -110,21 +108,26 @@ function DeletePage(props) {
                                     margin: "0",
                                     fontWeight: "bolder",
                                     maxWidth: "75%",
-                                    color:"rgb(185, 185, 185)",
-                                    fontSize:"15px"
-                                }}>{"Identifiant : "+entreprise.id}</p>
+                                    color: "rgb(185, 185, 185)",
+                                    fontSize: "15px"
+                                }}>{"Identifiant : " + entreprise.id}</p>
                             </div>
                             <div
                                 style={{width: "350px", lineHeight: "15px"}}>
-                                <p><span style={{color: "#b9b9b9"}}>SIRET :</span> {entreprise.properties.company_siret}</p>
+                                <p><span style={{color: "#b9b9b9"}}>SIRET :</span> {entreprise.properties.company_siret}
+                                </p>
                                 <p>{entreprise.properties.address}</p>
                                 <p> {entreprise.properties.zip}</p>
                                 <p>{entreprise.properties.city}</p>
                             </div>
                         </div>
+                        <button style={{position: "absolute", right: "20px", bottom: "20px"}}
+                                className={"buttonToSearchCompanies"} onClick={openModal} value={key}
+                                id={entreprise.id}>Supprimer
+                        </button>
                     </>
                 }
-                <div style={{display:"flex",flexFlow:"row",justifyContent:"center",gap:"20px"}}>
+                <div style={{display: "flex", flexFlow: "row", justifyContent: "center", gap: "20px"}}>
                     {isLoad === true ?
                         <span className="loader"></span>
                         :
@@ -139,7 +142,8 @@ function DeletePage(props) {
                                 fontWeight: "500",
                                 color: "#575656",
                                 filter: "drop-shadow(2px 4px 6px black)",
-                                maxWidth: "650px"
+                                maxWidth: "650px",
+                                minWidth:"400px"
                             }}>
                                 <p style={{
                                     margin: "0",
@@ -187,7 +191,8 @@ function DeletePage(props) {
                                 fontWeight: "500",
                                 color: "#575656",
                                 filter: "drop-shadow(2px 4px 6px black)",
-                                maxWidth: "650px"
+                                maxWidth: "650px",
+                                minWidth:"400px"
                             }}>
                                 <p style={{
                                     margin: "0",
@@ -226,8 +231,7 @@ function DeletePage(props) {
                     <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                            contentLabel="Example Modal">
                         <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
-                            <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Valider la création d'une fiche
-                                pour {selectedCompanie.uniteLegale.denominationUniteLegale} ?</p>
+                            <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Confirmer la suppresion de l'entreprise et de toutes ses associations ? L'action est irréversible</p>
                         </div>
                         <div className={"validationModalContainer"}>
                             <ValidationModal companie={selectedCompanie} change={closeModalValid}
