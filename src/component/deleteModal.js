@@ -4,8 +4,22 @@ import moment from "moment/moment";
 
 function DeleteModal(props) {
     const [isLoad, setIsLoad] = React.useState(false);
-    const addCompanie = (e) => {
-        props.change();
+    const deleteEntreprise = (e) => {
+        props.deals.map((val, key) => {
+            Axios.get(
+                '/api/deleteDeals/' + val.id
+            )
+        })
+        props.contacts.map((val, key) => {
+            Axios.get(
+                '/api/deleteContact/' + val.id
+            )
+        })
+        Axios.get(
+            '/api/deleteCompany/' + props.companie.is
+        ).then(function(response){
+            props.change();
+        })
     }
     ;function closeModal() {
         props.no();
@@ -16,7 +30,7 @@ function DeleteModal(props) {
                 <span className="loader"></span>
                 :
                 <>
-                    <button onClick={addCompanie} className={"validationButton"}>Oui
+                    <button onClick={deleteEntreprise} className={"validationButton"}>Oui
                     </button>
                     <button onClick={closeModal} className={"refuseButton"}>Non</button>
                 </>

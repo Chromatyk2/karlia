@@ -242,7 +242,7 @@ function DeletePage(props) {
                             <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Confirmer la suppresion de l'entreprise et de toutes ses associations ? L'action est irréversible</p>
                         </div>
                         <div className={"validationModalContainer"}>
-                            <DeleteModal companie={selectedCompanie} change={closeModalValid}
+                            <DeleteModal companie={entreprise} contacts={contacts} deals={deals} change={closeModalValid}
                                              no={closeModalCancel}/>
                         </div>
                     </Modal>

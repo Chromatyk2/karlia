@@ -75,6 +75,45 @@ router.get("/getDealsByCompany/:idDeals", (req, res, next)=>{
         }
     ).then(response => res.json(response.data))
 });
+
+router.get("/deleteContact/:idContact", (req, res, next)=>{
+    const secret = process.env.REACT_APP_CLIENT_SECRET;
+    const idContact = req.params.idContact;
+    Axios.delete(
+        'https://api.hubapi.com/crm/v3/objects/contacts/'+idContact,
+        {
+            headers: {
+                Authorization: 'Bearer '+secret
+            },
+        }
+    ).then(response => res.json(response.data))
+});
+
+router.get("/deleteDeal/:idDeal", (req, res, next)=>{
+    const secret = process.env.REACT_APP_CLIENT_SECRET;
+    const idDeal = req.params.idDeal;
+    Axios.delete(
+        'https://api.hubapi.com/crm/v3/objects/deals/'+idDeal,
+        {
+            headers: {
+                Authorization: 'Bearer '+secret
+            },
+        }
+    ).then(response => res.json(response.data))
+});
+
+router.get("/deleteCompany/:idCompany", (req, res, next)=>{
+    const secret = process.env.REACT_APP_CLIENT_SECRET;
+    const idCompany = req.params.idCompany;
+    Axios.delete(
+        'https://api.hubapi.com/crm/v3/objects/companies/'+idCompany,
+        {
+            headers: {
+                Authorization: 'Bearer '+secret
+            },
+        }
+    ).then(response => res.json(response.data))
+});
 api.use("/api/", router);
 
 export const handler = serverless(api);
