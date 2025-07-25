@@ -55,7 +55,7 @@ function DeletePage(props) {
                         ).then(function (response) {
                             const x = contacts.filter(item => item.id === response.data.id);
                             if(x.length === 0){
-                                setContacts(contacts => [...contacts,response.data.properties]);
+                                setContacts(contacts => [...contacts,response.data]);
                             }
                         })
                     })
@@ -63,7 +63,7 @@ function DeletePage(props) {
                     Axios.get(
                         '/api/getDealsByCompany/' + val.id
                     ).then(function (response) {
-                        setDeals(contacts => [...deals,response.data.properties]);
+                        setDeals(contacts => [...deals,response.data]);
                     })
                 })
             })
@@ -169,14 +169,14 @@ function DeletePage(props) {
                                                         margin: "0",
                                                         fontSize: "20px",
                                                         maxWidth: "75%"
-                                                    }}>{val.firstname+" "+val.lastname}</p>
+                                                    }}>{val.firstname+" "+val.properties.lastname}</p>
                                                     <p style={{
                                                         margin: "0",
                                                         fontWeight: "bolder",
                                                         maxWidth: "75%",
                                                         color: "rgb(185, 185, 185)",
                                                         fontSize: "15px"
-                                                    }}>{val.email}</p>
+                                                    }}>{val.properties.email}</p>
                                                 </div>
                                             </>
                                         )
@@ -218,14 +218,14 @@ function DeletePage(props) {
                                                         margin: "0",
                                                         fontSize: "20px",
                                                         maxWidth: "75%"
-                                                    }}>{val.dealname}</p>
+                                                    }}>{val.properties.dealname}</p>
                                                     <p style={{
                                                         margin: "0",
                                                         fontWeight: "bolder",
                                                         maxWidth: "75%",
                                                         color: "rgb(185, 185, 185)",
                                                         fontSize: "15px"
-                                                    }}>{moment(val.createdate).utc().format('DD/MM/YYYY')}</p>
+                                                    }}>{moment(val.properties.createdate).utc().format('DD/MM/YYYY')}</p>
                                                 </div>
                                             </>
                                         )
