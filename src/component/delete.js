@@ -33,6 +33,9 @@ function DeletePage(props) {
     }function closeModalValid() {
         setIsOpen(false);
         NotificationManager.success('Suppresion validée', 'Validation', 3000);
+        setContacts([])
+        setDeals([])
+        setEntreprise(null)
     }function closeModalCancel() {
         setIsOpen(false);
     }
