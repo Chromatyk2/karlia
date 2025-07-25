@@ -49,8 +49,8 @@ function DeletePage(props) {
                     Axios.get(
                         '/api/getContactsByCompany/' + val.id
                     ).then(function (response) {
-                        const x = contacts.find(item => item.email === response.data.properties.email);
-                        if(!x){
+                        const x = contacts.filter(item => item.email === response.data.properties.email);
+                        if(x.length === 0){
                             setContacts(contacts => [...contacts,response.data.properties]);
                         }
                     })
