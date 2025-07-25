@@ -56,6 +56,12 @@ input{
   justify-content: center;
   gap: 30px;
 }
+.allCompaniesContainerDelete{
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-flow: column;
+}
 .buttonToSearchCompanies{
   color: #575656;
   background: rgb(254, 254, 254);

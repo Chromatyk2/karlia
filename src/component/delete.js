@@ -81,7 +81,7 @@ function DeletePage(props) {
                         onClick={searchEntrepriseById}>Chercher
                 </button>
             </div>
-            <div className={"allCompaniesContainer"}>
+            <div className={"allCompaniesContainerDelete"}>
                 {isLoad === true ?
                     <span className="loader"></span>
                     :
@@ -96,7 +96,8 @@ function DeletePage(props) {
                             fontWeight: "500",
                             color: "#575656",
                             filter: "drop-shadow(2px 4px 6px black)",
-                            maxWidth: "650px"
+                            maxWidth: "650px",
+                            margin:"auto"
                         }}>
                             <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
                                 <p style={{
@@ -123,7 +124,7 @@ function DeletePage(props) {
                         </div>
                     </>
                 }
-                <div style={{display:"flex",flexFlow:"row"}}>
+                <div style={{display:"flex",flexFlow:"row",justifyContent:"center",gap:"20px"}}>
                     {isLoad === true ?
                         <span className="loader"></span>
                         :
@@ -142,9 +143,10 @@ function DeletePage(props) {
                             }}>
                                 <p style={{
                                     margin: "0",
-                                    fontSize: "20px",
+                                    fontSize: "25px",
                                     fontWeight: "bolder",
-                                    maxWidth: "75%"
+                                    maxWidth: "75%",
+                                    marginBottom:"20px"
                                 }}>Contacts</p>
                                 {
                                     contacts.map((val, key) => {
@@ -154,7 +156,6 @@ function DeletePage(props) {
                                                     <p style={{
                                                         margin: "0",
                                                         fontSize: "20px",
-                                                        fontWeight: "bolder",
                                                         maxWidth: "75%"
                                                     }}>{val.firstname+" "+val.lastname}</p>
                                                     <p style={{
@@ -190,9 +191,10 @@ function DeletePage(props) {
                             }}>
                                 <p style={{
                                     margin: "0",
-                                    fontSize: "20px",
+                                    fontSize: "25px",
                                     fontWeight: "bolder",
-                                    maxWidth: "75%"
+                                    maxWidth: "75%",
+                                    marginBottom:"20px"
                                 }}>Transactions</p>
                                 {
                                     deals.map((val, key) => {
@@ -202,7 +204,6 @@ function DeletePage(props) {
                                                     <p style={{
                                                         margin: "0",
                                                         fontSize: "20px",
-                                                        fontWeight: "bolder",
                                                         maxWidth: "75%"
                                                     }}>{val.dealname}</p>
                                                     <p style={{
