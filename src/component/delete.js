@@ -45,17 +45,15 @@ function DeletePage(props) {
             ).then(function(response){
                 setEntreprise(response.data);
                 // setIsLoad(false)
-                const IDs = new Set(response.data.associations.contacts.results.map((item) => item.id));
-                console.log(IDs)
-                response.data.associations.contacts.results.filter((item,key) => response.data.associations.contacts.results.indexOf(item) === key).map((val, key) => {
-                    Axios.get(
-                        '/api/getContactsByCompany/' + val.id
-                    ).then(function (response) {
-                        const x = contacts.filter(item => item.id === response.data.id);
-                        if(x.length === 0){
-                            setContacts(contacts => [...contacts,response.data.properties]);
-                        }
-                    })
+                new Set(response.data.associations.contacts.results.map((item) => item.id)).map((val, key) => {
+                        Axios.get(
+                            '/api/getContactsByCompany/' + val.id
+                        ).then(function (response) {
+                            const x = contacts.filter(item => item.id === response.data.id);
+                            if(x.length === 0){
+                                setContacts(contacts => [...contacts,response.data.properties]);
+                            }
+                        })
                 })
                 response.data.associations.deals.results.map((val, key) => {
                     Axios.get(
