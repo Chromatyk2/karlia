@@ -32,7 +32,7 @@ function DeletePage(props) {
         setIsOpen(false);
     }function closeModalValid() {
         setIsOpen(false);
-        NotificationManager.success('L\'entreprise et ses associations ont bien été supprimées', 'Validation', 3000);
+        NotificationManager.success('Suppresion validée', 'Validation', 3000);
     }function closeModalCancel() {
         setIsOpen(false);
     }
