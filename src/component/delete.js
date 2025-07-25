@@ -37,6 +37,8 @@ function DeletePage(props) {
         setIsOpen(false);
     }
     const searchEntrepriseById = (e) => {
+        setContacts([])
+        setDeals([])
         setIsLoad(true)
         const idEntreprise = document.getElementById('searchIdField').value;
         if(idEntreprise.length > 0){
