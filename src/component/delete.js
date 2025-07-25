@@ -49,7 +49,12 @@ function DeletePage(props) {
                     Axios.get(
                         '/api/getContactsByCompany/' + val.id
                     ).then(function (response) {
-                        setContacts(contacts => [...contacts,response.data.properties]);
+                        response.data.properties.reduce((item, current) => {
+                            const x = response.data.properties.find(item => item.email === current.email);
+                            if(!x){
+                                setContacts(contacts => [...contacts,response.data.properties]);
+                            }
+                        })
                     })
                 })
                 response.data.associations.deals.results.map((val, key) => {
