@@ -154,7 +154,7 @@ function DeletePage(props) {
                                     marginBottom:"20px"
                                 }}>Contacts</p>
                                 {
-                                    contacts.map((val, key) => {
+                                    contacts.filter((item,key) => contacts.indexOf(item) === key).map((val, key) => {
                                         return (
                                             <>
                                                 <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
