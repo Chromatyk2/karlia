@@ -45,11 +45,11 @@ function DeletePage(props) {
             ).then(function(response){
                 setEntreprise(response.data);
                 // setIsLoad(false)
-                response.data.associations.contacts.results.map((val, key) => {
+                response.data.associations.contacts.results.filter((item,key) => contacts.indexOf(item) === key).map((val, key) => {
                     Axios.get(
                         '/api/getContactsByCompany/' + val.id
                     ).then(function (response) {
-                        const x = contacts.filter(item => item.email === response.data.properties.email);
+                        const x = contacts.filter(item => item.id === response.data.id);
                         if(x.length === 0){
                             setContacts(contacts => [...contacts,response.data.properties]);
                         }
