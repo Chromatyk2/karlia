@@ -212,7 +212,7 @@ function DeletePage(props) {
                                                         maxWidth: "75%",
                                                         color: "rgb(185, 185, 185)",
                                                         fontSize: "15px"
-                                                    }}>{val.createdate}</p>
+                                                    }}>{moment(val.createdate).utc().format('DD/MM/YYYY')}</p>
                                                 </div>
                                             </>
                                         )
