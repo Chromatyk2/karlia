@@ -228,7 +228,7 @@ function DeletePage(props) {
                         </>
                     }
                 </div>
-                {selectedCompanie &&
+                {entreprise &&
                     <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles}
                            contentLabel="Example Modal">
                         <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
