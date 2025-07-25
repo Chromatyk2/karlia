@@ -6,6 +6,7 @@ import ValidationModal from "./vaidationModal";
 import moment from "moment";
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import DeleteModal from "./deleteModal";
 
 function DeletePage(props) {
     const [selectedCompanie,setSelectedCompanie] = useState();
@@ -122,7 +123,7 @@ function DeletePage(props) {
                             </div>
                         </div>
                         <button style={{position: "absolute", right: "20px", bottom: "20px"}}
-                                className={"buttonToSearchCompanies"} onClick={openModal} value={key}
+                                className={"buttonToSearchCompanies"} onClick={openModal}
                                 id={entreprise.id}>Supprimer
                         </button>
                     </>
@@ -234,7 +235,7 @@ function DeletePage(props) {
                             <p style={{fontWeight: "500", color: "rgb(87, 86, 86)"}}>Confirmer la suppresion de l'entreprise et de toutes ses associations ? L'action est irréversible</p>
                         </div>
                         <div className={"validationModalContainer"}>
-                            <ValidationModal companie={selectedCompanie} change={closeModalValid}
+                            <DeleteModal companie={selectedCompanie} change={closeModalValid}
                                              no={closeModalCancel}/>
                         </div>
                     </Modal>

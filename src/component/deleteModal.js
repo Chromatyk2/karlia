@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import Axios from "axios";
 import moment from "moment/moment";
 
-function ValidationModal(props) {
+function DeleteModal(props) {
     const [isLoad, setIsLoad] = React.useState(false);
     const addCompanie = (e) => {
         props.change();
@@ -25,4 +25,4 @@ function ValidationModal(props) {
     );
 }
 
-export default ValidationModal;
+export default DeleteModal;
