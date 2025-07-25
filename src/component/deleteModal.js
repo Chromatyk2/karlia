@@ -18,11 +18,11 @@ function DeleteModal(props) {
                 '/api/deleteContact/' + val.id
             )
         })
-        // Axios.get(
-        //     '/api/deleteCompany/' + props.companie.id
-        // ).then(function(response){
-        //     props.change();
-        // })
+        Axios.get(
+            '/api/deleteCompany/' + props.companie.id
+        ).then(function(response){
+            props.change();
+        })
     }
     ;function closeModal() {
         props.no();
