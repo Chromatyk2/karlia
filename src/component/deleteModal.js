@@ -4,6 +4,9 @@ import moment from "moment/moment";
 
 function DeleteModal(props) {
     const [isLoad, setIsLoad] = React.useState(false);
+    console.log(props.deals)
+    console.log(props.contacts)
+    console.log(props.companie)
     const deleteEntreprise = (e) => {
         props.deals.map((val, key) => {
             Axios.get(
@@ -15,11 +18,11 @@ function DeleteModal(props) {
                 '/api/deleteContact/' + val.id
             )
         })
-        Axios.get(
-            '/api/deleteCompany/' + props.companie.is
-        ).then(function(response){
-            props.change();
-        })
+        // Axios.get(
+        //     '/api/deleteCompany/' + props.companie.id
+        // ).then(function(response){
+        //     props.change();
+        // })
     }
     ;function closeModal() {
         props.no();
