@@ -45,7 +45,8 @@ function DeletePage(props) {
             ).then(function(response){
                 setEntreprise(response.data);
                 // setIsLoad(false)
-                new Set(response.data.associations.contacts.results.map((item) => item.id)).map((val, key) => {
+                const IDs = new Set(response.data.associations.contacts.results.map((item) => item.id));
+                Array.from(IDs).map((val, key) => {
                         Axios.get(
                             '/api/getContactsByCompany/' + val.id
                         ).then(function (response) {
@@ -54,6 +55,7 @@ function DeletePage(props) {
                                 setContacts(contacts => [...contacts,response.data.properties]);
                             }
                         })
+                    })
                 })
                 response.data.associations.deals.results.map((val, key) => {
                     Axios.get(
