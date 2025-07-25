@@ -45,7 +45,7 @@ function DeletePage(props) {
             ).then(function(response){
                 setEntreprise(response.data);
                 // setIsLoad(false)
-                response.data.associations.contacts.results.filter((item,key) => contacts.indexOf(item) === key).map((val, key) => {
+                response.data.associations.contacts.results.filter((item,key) => response.data.associations.contacts.results.indexOf(item) === key).map((val, key) => {
                     Axios.get(
                         '/api/getContactsByCompany/' + val.id
                     ).then(function (response) {
