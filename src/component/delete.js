@@ -105,8 +105,8 @@ function DeletePage(props) {
                             fontWeight: "500",
                             color: "#575656",
                             filter: "drop-shadow(2px 4px 6px black)",
-                            maxWidth: "650px",
-                            margin: "auto"
+                            width: "500px",
+                            marginLeft: "30px"
                         }}>
                             <div style={{display: "flex", flexFlow: "column", gap: "0"}}>
                                 <p style={{
@@ -138,7 +138,7 @@ function DeletePage(props) {
                         </div>
                     </>
                 }
-                <div style={{display: "flex", flexFlow: "row", justifyContent: "center", gap: "20px"}}>
+                <div style={{display: "flex", flexFlow: "column", justifyContent: "flex-start",gap: "20px",marginLeft: "30px"}}>
                     {isLoad === true ?
                         <span className="loader"></span>
                         :
@@ -153,8 +153,7 @@ function DeletePage(props) {
                                 fontWeight: "500",
                                 color: "#575656",
                                 filter: "drop-shadow(2px 4px 6px black)",
-                                maxWidth: "650px",
-                                minWidth:"400px"
+                                width:"500px"
                             }}>
                                 <p style={{
                                     margin: "0",
@@ -203,7 +202,7 @@ function DeletePage(props) {
                                 color: "#575656",
                                 filter: "drop-shadow(2px 4px 6px black)",
                                 maxWidth: "650px",
-                                minWidth:"400px"
+                                width:"500px"
                             }}>
                                 <p style={{
                                     margin: "0",
